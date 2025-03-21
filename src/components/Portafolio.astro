@@ -1,0 +1,70 @@
+---
+import Proyecto from "./Proyecto.astro";
+---
+
+<div id="container">
+  <main>
+    <section id="hero">
+      <h1>Bienvenido a mi portafolio</h1>
+    </section>
+    <h1>Proyectos</h1>
+    <section id="proyectos">
+      <Proyecto
+        urlProyecto="https://github.com/devparada/RitmosBot"
+        urlImg="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=violet&shade=600"
+        nombre="RitmosBot"
+        descripcion="Bot de música que permite a los usuarios disfrutar de su música en Discord"
+      />
+      <Proyecto
+      urlProyecto="https://github.com/devparada"
+        urlImg="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=green&shade=600"
+        nombre="Por defecto"
+        descripcion="Por defecto"
+      />
+    </section>
+  </main>
+</div>
+
+<style>
+  #container {
+    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+      Arial, sans-serif;
+    height: 90%;
+  }
+
+  main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #proyectos {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-top: 0.25em;
+  }
+
+  @media screen and (max-width: 768px) {
+    #proyectos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #hero {
+      display: block;
+      padding-top: 10%;
+    }
+
+    h1 {
+      line-height: 1.5;
+    }
+  }
+</style>

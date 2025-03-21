@@ -1,0 +1,20 @@
+---
+const { nombre, svgCustom } = Astro.props;
+---
+
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+  ><title>{nombre}}</title><path d={svgCustom}></path></svg
+>
+
+<style>
+  svg {
+    width: 55px;
+    margin: 3px;
+  }
+
+  @media screen and (max-width: 768px) {
+    svg {
+      width: 30px;
+    }
+  }
+</style>
