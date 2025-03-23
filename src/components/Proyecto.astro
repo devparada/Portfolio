@@ -1,22 +1,28 @@
 ---
 import "../styles/global.css";
 import Lenguaje from "./Lenguaje.astro";
+import { Image } from "astro:assets";
 const { urlProyecto, urlImg, nombre, descripcion } = Astro.props;
+// Importa dinámicamente las imagenes de la carpeta
+const imagenes = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
+if (!imagenes[urlImg]) throw new Error(`"${urlImg}" no existe en esta carpeta: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
 
 <div
-  class="proyecto rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden"
+  class="proyecto rounded-lg border shadow-sm overflow-hidden"
 >
   <a href={urlProyecto}>
-    <img
+    <Image
       class="object-cover w-full h-60"
-      src={urlImg}
+      src={imagenes[urlImg]()}
+      alt=`Imagen de ${nombre}`
       height="240"
       width="360"
+      format="webp"
     />
     <div class="text-center">
       <h1 class="text-x1 font-bold">{nombre}</h1>
-      <p class="text-muted-foreground">{descripcion}</p>
+      <p class="text-gray-700">{descripcion}</p>
       <div class="lenguajes mb-3">
         <Lenguaje
           nombre="HTML5"
@@ -53,14 +59,5 @@ const { urlProyecto, urlImg, nombre, descripcion } = Astro.props;
     align-items: center;
     justify-content: center;
     margin-top: 6px;
-  }
-
-  .boton-codigo {
-    border: 1px solid gainsboro;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    border-radius: 6px;
   }
 </style>
