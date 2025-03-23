@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Proyecto from "./Proyecto.astro";
 ---
 
@@ -8,6 +9,14 @@ import Proyecto from "./Proyecto.astro";
       <div
         class="flex flex-col justify-center space-y-4 max-w-3xl mx-auto text-center"
       >
+        <Image
+          class="mx-auto"
+          src="/src/assets/avatar.png"
+          alt="Avatar"
+          height="120"
+          width="120"
+          format="webp"
+        />
         <div class="space-y-2">
           <h1 class="text-3xl font-bold sm:text-5xl xl:text-6xl/none">
             Hola, soy <span class="text-primary"> Raúl Parada</span>
