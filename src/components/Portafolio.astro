@@ -2,55 +2,72 @@
 import Proyecto from "./Proyecto.astro";
 ---
 
-<div id="container">
-  <main class="text-center bg-gray-200">
-    <section id="intro" class="py-24 md:py-32">
-      <div class="container px-4 md:px-6">
-        <div class="flex flex-col justify-center space-y-4 max-w-3xl mx-auto text-center">
-          <div class="space-y-2">
-            <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-              Hola, soy <span class="text-primary"> Raúl Parada</span>
-            </h1>
-            <p class="text-gray-500 md:text-xl">
-              Desarrollador web especializado en crear sitios web y experiencias
-            </p>
-          </div>
-    </section>
-  </main>
-  <section class="mt-4" id="sobre-mi">
-    <h1 class="text-2xl font-bold">Sobre Mí (En construcción)</h1>
-    <p class="mb-1 mt-0.5 text-gray-500">
-      Conoce más sobre mi experiencia y trayectoria profesional
-    </p>
-    <div class="text-left">
-      <p class="mb-1 mt-1">
-        Soy un desarrollador web apasionado en la creación de aplicaciones web
-        modernas y responsivas. Mi enfoque se centra en propocionar soluciones
-        elegantes a problemas complejas, manteniendo un enfoque en la usabilidad
-        y accesibilidad como prioridades.
-      </p>
-      <p class="mb-1 mt-1">
-        Soy un desarrollador web apasionado en la creación de aplicaciones web
-        modernas y responsivas. Mi enfoque se centra en propocionar soluciones
-        elegantes a problemas complejas, manteniendo un enfoque en la usabilidad
-        y accesibilidad como prioridades.
-      </p>
-      <p class="mb-1 mt-1">
-        Soy un desarrollador web apasionado en la creación de aplicaciones web
-        modernas y responsivas. Mi enfoque se centra en propocionar soluciones
-        elegantes a problemas complejas, manteniendo un enfoque en la usabilidad
-        y accesibilidad como prioridades.
-      </p>
+<main class="text-center">
+  <section id="intro" class="py-24 md:py-32 bg-gray-100 w-full">
+    <div class="px-4 md:px-6 m-auto">
+      <div
+        class="flex flex-col justify-center space-y-4 max-w-3xl mx-auto text-center"
+      >
+        <div class="space-y-2">
+          <h1
+            class="text-3xl font-bold sm:text-5xl xl:text-6xl/none"
+          >
+            Hola, soy <span class="text-primary"> Raúl Parada</span>
+          </h1>
+          <p class="text-gray-500 md:text-xl">
+            Desarrollador web especializado en crear sitios web y experiencias
+          </p>
+        </div>
+        <div class="flex gap-2 flex-row justify-center">
+          <a
+            href="#proyectos"
+            class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium bg-violet-500 border border-violet-500 text-white h-10 px-4 py-2"
+            >Ver mis proyectos</a
+          ><a
+            href="#contacto"
+            class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium bg-white border border-violet-500 text-violet-500 h-10 px-4 py-2"
+            >Contáctame</a
+          >
+        </div>
+      </div>
     </div>
-    <section class="mt-2">
-      <h1 class="text-2xl font-bold tracking-tighter sm:text-2xl md:text-2xl">
-        Mis Proyectos
-      </h1>
+  </section>
+  <section class="mt-10 py-16 md:py-24" id="sobre-mi">
+    <div class="container px-4 md:px-6">
+      <h1 class="text-2xl font-bold">Sobre Mí WIP</h1>
+      <p class="mb-1 mt-2 text-gray-500">
+        Conoce más sobre mi experiencia y trayectoria profesional
+      </p>
+      <div class="text-left">
+        <p class="mb-1 mt-1">
+          Soy un desarrollador web apasionado en la creación de aplicaciones web
+          modernas y responsivas. Mi enfoque se centra en propocionar soluciones
+          elegantes a problemas complejas, manteniendo un enfoque en la
+          usabilidad y accesibilidad como prioridades.
+        </p>
+        <p class="mb-1 mt-1">
+          Soy un desarrollador web apasionado en la creación de aplicaciones web
+          modernas y responsivas. Mi enfoque se centra en propocionar soluciones
+          elegantes a problemas complejas, manteniendo un enfoque en la
+          usabilidad y accesibilidad como prioridades.
+        </p>
+        <p class="mb-1 mt-1">
+          Soy un desarrollador web apasionado en la creación de aplicaciones web
+          modernas y responsivas. Mi enfoque se centra en propocionar soluciones
+          elegantes a problemas complejas, manteniendo un enfoque en la
+          usabilidad y accesibilidad como prioridades.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="proyectos" class="bg-gray-100 p-10 w-full">
+    <div>
+      <h1>Mis Proyectos</h1>
       <p class="mt-1 text-muted">
         Una selección de los proyectos en los que he trabajado
       </p>
-    </section>
-    <section id="proyectos" class="mt-4">
+    </div>
+    <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl m-auto">
       <Proyecto
         urlProyecto="https://github.com/devparada/RitmosBot"
         urlImg="/ritmos-proyecto.png"
@@ -69,48 +86,32 @@ import Proyecto from "./Proyecto.astro";
         nombre="TaskVelocity"
         descripcion="Proyecto de fin de ciclo que gestiona tareas y proyectos de cada usuario"
       />
-    </section>
+    </div>
   </section>
-</div>
+  <footer class="p-4">
+    <footer class="text-gray-400">
+      © 2025 Raúl Parada. Creado con una licencia MIT.
+    </footer>
+  </footer>
 
-<style>
-  #container {
-    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
-      Arial, sans-serif;
-  }
-
-  #sobre-mi {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-  }
-
-  #proyectos {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  @media screen and (max-width: 768px) {
-    #proyectos {
+  <style>
+    #sobre-mi {
       display: flex;
       flex-direction: column;
+      text-align: center;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      align-content: center;
     }
 
     h1 {
-      line-height: 1.5;
+      font-weight: bold;
+      font-size: 24px;
     }
-  }
-</style>
+  </style>
+</main>
