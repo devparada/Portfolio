@@ -9,9 +9,7 @@ import Proyecto from "./Proyecto.astro";
         class="flex flex-col justify-center space-y-4 max-w-3xl mx-auto text-center"
       >
         <div class="space-y-2">
-          <h1
-            class="text-3xl font-bold sm:text-5xl xl:text-6xl/none"
-          >
+          <h1 class="text-3xl font-bold sm:text-5xl xl:text-6xl/none">
             Hola, soy <span class="text-primary"> Raúl Parada</span>
           </h1>
           <p class="text-gray-500 md:text-xl">
@@ -32,42 +30,44 @@ import Proyecto from "./Proyecto.astro";
       </div>
     </div>
   </section>
-  <section class="mt-10 py-16 md:py-24" id="sobre-mi">
-    <div class="container px-4 md:px-6">
-      <h1 class="text-2xl font-bold">Sobre Mí WIP</h1>
-      <p class="mb-1 mt-2 text-gray-500">
-        Conoce más sobre mi experiencia y trayectoria profesional
+  <section id="sobre-mi" class="py-16 md:py-8 sm:m-10">
+    <h1 class="text-2xl font-bold">Sobre Mí</h1>
+    <p class="mb-1 mt-2 text-gray-500">
+      Conoce más sobre mi experiencia y trayectoria profesional
+    </p>
+    <div class="max-w-3xl space-y-4 lg:text-left ml-3 mr-3 lg:m-auto">
+      <p>
+        Soy un desarrollador web junior en la creación de aplicaciones web
+        modernas y responsivas. Mi enfoque se centra en propocionar soluciones
+        elegantes a problemas complejos, manteniendo un enfoque en la usabilidad
+        y accesibilidad como prioridades.
       </p>
-      <div class="text-left">
-        <p class="mb-1 mt-1">
-          Soy un desarrollador web apasionado en la creación de aplicaciones web
-          modernas y responsivas. Mi enfoque se centra en propocionar soluciones
-          elegantes a problemas complejas, manteniendo un enfoque en la
-          usabilidad y accesibilidad como prioridades.
-        </p>
-        <p class="mb-1 mt-1">
-          Soy un desarrollador web apasionado en la creación de aplicaciones web
-          modernas y responsivas. Mi enfoque se centra en propocionar soluciones
-          elegantes a problemas complejas, manteniendo un enfoque en la
-          usabilidad y accesibilidad como prioridades.
-        </p>
-        <p class="mb-1 mt-1">
-          Soy un desarrollador web apasionado en la creación de aplicaciones web
-          modernas y responsivas. Mi enfoque se centra en propocionar soluciones
-          elegantes a problemas complejas, manteniendo un enfoque en la
-          usabilidad y accesibilidad como prioridades.
-        </p>
-      </div>
+      <p>
+        Tengo algunos proyectos interesantes que abarcan desde frontend usando
+        Bootstrap y Tailwind hasta backend usando PHP y Spring Boot y algunos
+        cuentan con Github Actions para verificar que los tests y las reglas
+        pasen correctamente.
+      </p>
+      <p>
+        Cuando no estoy programando, disfruto de videojuegos y Minecraft y creo
+        que es clave mantener un equilibrio entre la vida profesional y personal
+        para la creatividad y la productividad.
+      </p>
     </div>
   </section>
-  <section id="proyectos" class="bg-gray-100 p-10 w-full">
+  <section
+    id="proyectos"
+    class="bg-gray-100 lg:p-10 lg:m-0 mr-1 ml-1 lg:w-full"
+  >
     <div>
       <h1>Mis Proyectos</h1>
       <p class="mt-1 text-muted">
         Una selección de los proyectos en los que he trabajado
       </p>
     </div>
-    <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl m-auto">
+    <div
+      class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl m-auto"
+    >
       <Proyecto
         urlProyecto="https://github.com/devparada/RitmosBot"
         urlImg="/ritmos-proyecto.png"
@@ -88,10 +88,16 @@ import Proyecto from "./Proyecto.astro";
       />
     </div>
   </section>
-  <footer class="p-4">
-    <footer class="text-gray-400">
-      © 2025 Raúl Parada. Creado con una licencia MIT.
-    </footer>
+  <section id="habilidades" class="p-10 w-full">
+    <h1>Mis habilidades WIP</h1>
+    <p>En progreso...</p>
+  </section>
+  <section id="contacto" class="p-10 w-full">
+    <h1>Contacto WIP</h1>
+    <p>En progreso...</p>
+  </section>
+  <footer class="p-4 text-gray-400">
+    © 2025 Raúl Parada. Creado con una licencia MIT.
   </footer>
 
   <style>
@@ -99,19 +105,6 @@ import Proyecto from "./Proyecto.astro";
       display: flex;
       flex-direction: column;
       text-align: center;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-    }
-
-    h1 {
-      font-weight: bold;
-      font-size: 24px;
     }
   </style>
 </main>

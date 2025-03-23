@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+/* Aquí van los estilos globales */
+
+h1 {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px;
+}
