@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import Proyecto from "./Proyecto.astro";
+// Importa dinámicamente las imagenes
+import { imagenes } from '../lib/imagenes.ts';
 ---
 
 <main class="text-center">
@@ -11,7 +13,7 @@ import Proyecto from "./Proyecto.astro";
       >
         <Image
           class="mx-auto"
-          src="/src/assets/avatar.png"
+          src={imagenes["/src/assets/avatar.png"]()}
           alt="Avatar"
           height="120"
           width="120"
