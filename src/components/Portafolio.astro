@@ -16,7 +16,7 @@ const proyectos = [
     lenguajes: [
       {
         nombre: "NodeJS",
-        color_bg: "seagreen",
+        color_bg: "green",
         color: "white",
       },
       {
@@ -64,7 +64,7 @@ const proyectos = [
 ---
 
 <main class="text-center">
-  <section id="intro" class="py-24 md:py-32 bg-gray-100 w-full">
+  <section id="intro" class="py-20 md:py-26 bg-gray-100 w-full">
     <div class="px-4 md:px-6 m-auto">
       <div
         class="flex flex-col justify-center space-y-4 max-w-3xl mx-auto text-center"
@@ -79,7 +79,7 @@ const proyectos = [
           loading="eager"
         />
         <div class="space-y-2">
-          <h1 class="text-3xl font-bold sm:text-5xl xl:text-6xl/none">
+          <h1 class="text-3xl font-bold sm:text-5xl xl:text-7xl">
             Hola, soy <span class="text-primary"> Raúl Parada</span>
           </h1>
           <p class="text-gray-500 md:text-xl">
@@ -88,7 +88,7 @@ const proyectos = [
         </div>
         <div class="flex gap-2 justify-center">
           <a
-            href="https://github.com"
+            href="https://github.com/devparada"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -102,10 +102,8 @@ const proyectos = [
                 width="32"
                 height="32"
                 viewBox="0 0 30 30"
-                class="text-violet-500"
               >
                 <path
-                  fill="#000000"
                   d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"
                 ></path>
               </svg>
@@ -113,14 +111,13 @@ const proyectos = [
             </button>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://es.linkedin.com/in/raul-parada-de-la-fuente"
             target="_blank"
             rel="noopener noreferrer"
           >
             <button
               class="hover:bg-gray-200 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none h-10 w-10"
-            >
-              <svg
+              ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
@@ -129,24 +126,25 @@ const proyectos = [
                 viewBox="0 0 48 48"
               >
                 <path
-                  fill="##000000"
-                  d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path><path
-                  fill="#fff"
-                  d="M14 19H18V34H14zM15.988 17h-.022C14.772 17 14 16.11 14 14.999 14 13.864 14.796 13 16.011 13c1.217 0 1.966.864 1.989 1.999C18 16.11 17.228 17 15.988 17zM35 24.5c0-3.038-2.462-5.5-5.5-5.5-1.862 0-3.505.928-4.5 2.344V19h-4v15h4v-8c0-1.657 1.343-3 3-3s3 1.343 3 3v8h4C35 34 35 24.921 35 24.5z"
+                  fill="#0288D1"
+                  d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"
+                ></path><path
+                  fill="#FFF"
+                  d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z"
                 ></path>
               </svg>
               <span class="sr-only">LinkedIn</span>
             </button>
           </a>
-          <a href="mailto:tu@email.com">
+          <a href="mailto:raul.parada040103@email.com">
             <button
               class="hover:bg-gray-200 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none h-10 w-10"
             >
               <Image
-                src="https://img.icons8.com/material-sharp/24/mail.png"
+                src="https://img.icons8.com/?id=LPcVDft9Isqt&color=000000"
                 width="32"
                 height="32"
-                alt="email"
+                alt="Email"
                 loading="eager"
               />
             </button>
@@ -156,18 +154,19 @@ const proyectos = [
           <a
             href="#proyectos"
             class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium bg-violet-500 border border-violet-500 text-white h-10 px-4 py-2"
-            >Ver mis proyectos</a
+            role="button">Ver mis proyectos</a
           ><a
             href="#contacto"
-            class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium bg-white border border-violet-500 text-violet-500 h-10 px-4 py-2"
-            >Contáctame</a
+            class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium bg-white border border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-white h-10 px-4 py-2"
+            role="button">Contáctame</a
           >
         </div>
       </div>
     </div>
   </section>
+  <!-- Sección Sobre mi -->
   <section id="sobre-mi" class="py-16 md:py-8 sm:m-10">
-    <h1 class="text-2xl font-bold">Sobre Mí</h1>
+    <h2>Sobre Mí</h2>
     <p class="mb-1 mt-2 text-gray-500">
       Conoce más sobre mi experiencia y trayectoria profesional
     </p>
@@ -191,12 +190,13 @@ const proyectos = [
       </p>
     </div>
   </section>
+  <!-- Sección proyectos -->
   <section
     id="proyectos"
     class="bg-gray-100 lg:p-10 lg:m-0 lg:mr-1 lg:ml-1 lg:w-full py-16 md:py-8"
   >
     <div>
-      <h1>Mis Proyectos</h1>
+      <h2>Mis Proyectos</h2>
       <p class="mt-1 text-muted">
         Una selección de los proyectos en los que he trabajado
       </p>
@@ -219,11 +219,11 @@ const proyectos = [
     </div>
   </section>
   <section id="habilidades" class="p-10 w-full">
-    <h1>Mis habilidades WIP</h1>
+    <h2>Mis habilidades WIP</h2>
     <p>En progreso...</p>
   </section>
   <section id="contacto" class="p-10 w-full">
-    <h1>Contacto WIP</h1>
+    <h2>Contacto WIP</h2>
     <p>En progreso...</p>
   </section>
   <footer class="p-4 text-gray-400">
@@ -235,6 +235,11 @@ const proyectos = [
       display: flex;
       flex-direction: column;
       text-align: center;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
     }
   </style>
 </main>
