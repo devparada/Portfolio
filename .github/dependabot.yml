@@ -9,4 +9,3 @@ updates:
       include: "scope" # Añade (deps) o (deps-dev) según el tipo de dependencia
     open-pull-requests-limit: 4
     versioning-strategy: "increase" # Actualiza en el package.json y yarn.lock
-    security-updates: true # PRs inmediatas para CVE críticos
