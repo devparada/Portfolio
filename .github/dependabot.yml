@@ -1,0 +1,28 @@
+version: 2
+updates:
+  # Dependencias de producción (dependencies)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "yarn"
+    open-pull-requests-limit: 4
+    versioning-strategy: "increase"
+    security-updates: true     # PRs inmediatas para CVE críticos
+    commit-message:
+      prefix: "yarn"
+    allow:
+      - dependency-type: "production"
+
+  # Dependencias de desarrollo (devDependencies)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 4
+    versioning-strategy: "lockfile-only"
+    commit-message:
+      prefix: "dev-yarn"
+    allow:
+      - dependency-type: "development"
