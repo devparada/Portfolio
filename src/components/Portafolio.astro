@@ -65,7 +65,7 @@ const proyectos = [
 ---
 
 <main class="text-center">
-  <section id="intro" class="py-20 md:py-26 bg-gray-100 w-full">
+  <section id="intro" class="py-20 pl-0 pr-0 md:py-26 bg-gray-100">
     <div class="px-4 md:px-6 m-auto">
       <div
         class="flex flex-col justify-center space-y-4 max-w-3xl mx-auto text-center"
@@ -152,14 +152,8 @@ const proyectos = [
           </a>
         </div>
         <div class="flex gap-2 flex-row justify-center">
-          <Boton
-          url="#proyectos"
-          texto="Ver mis proyectos"
-          />
-          <Boton
-          url="#contacto"
-          texto="Contáctame"
-          />
+          <Boton url="#proyectos" texto="Ver mis proyectos" />
+          <Boton url="#contacto" texto="Contáctame" />
         </div>
       </div>
     </div>
@@ -237,9 +231,10 @@ const proyectos = [
       text-align: center;
     }
 
-    h2 {
-      font-size: 1.5rem;
-      font-weight: bold;
+    #intro {
+      background-image: url(/src/assets/background.svg);
+      background-position: center;
+      background-size: cover;
     }
   </style>
 </main>
