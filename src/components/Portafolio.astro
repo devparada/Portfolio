@@ -2,8 +2,6 @@
 import { Image } from "astro:assets";
 import Proyecto from "./Proyecto.astro";
 import Boton from "./Boton.astro";
-// Importa dinámicamente las imagenes
-import { imagenes } from "../lib/imagenes.ts";
 
 // Array de todos los proyectos
 // NOTA: Si color no aparece en algún lenguaje por defecto es de color negro
@@ -72,11 +70,10 @@ const proyectos = [
       >
         <Image
           class="mx-auto"
-          src={imagenes["/src/assets/avatar.png"]()}
+          src="/avatar.webp"
           alt="Avatar"
           height="120"
           width="120"
-          format="webp"
           loading="eager"
         />
         <div class="space-y-2">
