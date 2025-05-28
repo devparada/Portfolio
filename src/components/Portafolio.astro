@@ -4,57 +4,77 @@ import Proyecto from "./Proyecto.astro";
 import Boton from "./Boton.astro";
 
 // Array de todos los proyectos
-// NOTA: Si color no aparece en algún lenguaje por defecto es de color negro
+// NOTA: Si el color no aparece en algún lenguaje por defecto es de color negro
 const proyectos = [
   {
     nombre: "RitmosBot",
-    urlProyecto: "https://github.com/devparada/RitmosBot",
+    urlCodigo: "https://github.com/devparada/RitmosBot",
     urlImg: "/src/assets/ritmos-proyecto.png",
+    categoria: "Bot Development",
     descripcion:
       "Bot de música que permite a los usuarios disfrutar de su música en Discord",
     lenguajes: [
       {
         nombre: "NodeJS",
-        color_bg: "green",
+        color_bg: "#339933",
         color: "white",
       },
       {
-        nombre: "HTML5",
-        color_bg: "orange",
+        nombre: "JavaScript",
+        color_bg: "#F7DF1E",
+      },
+      {
+        nombre: "Discord.js",
+        color_bg: "#5865F2",
+        color: "white",
       },
     ],
   },
   {
     nombre: "TresEnrayaJS",
-    urlProyecto: "https://tresenrayajs.vercel.app",
+    urlCodigo: "https://github.com/devparada/TresEnRayaJS",
+    urlDemo: "https://tresenrayajs.vercel.app",
     urlImg: "/src/assets/tresenrayajs-proyecto.png",
-    descripcion: "Tres en raya hecho en JavaScript",
+    categoria: "Game Development",
+    descripcion: "Tres en raya realizado usando HTML5, JavaScript y Bootstrap",
     lenguajes: [
       {
         nombre: "HTML5",
-        color_bg: "orange",
+        color_bg: "#E34F26",
+        color: "white",
       },
       {
         nombre: "CSS3",
-        color_bg: "slateblue",
+        color_bg: "#1572B6",
         color: "white",
       },
       {
         nombre: "JavaScript",
-        color_bg: "yellow",
+        color_bg: "#F7DF1E",
       },
     ],
   },
   {
     nombre: "TaskVelocity",
-    urlProyecto: "https://github.com/devparada/taskvelocity",
+    urlCodigo: "https://github.com/devparada/taskvelocity",
     urlImg: "/src/assets/taskvelocity-proyecto.png",
+    categoria: "Web Application",
     descripcion:
       "Proyecto de fin de ciclo que gestiona tareas y proyectos de cada usuario",
     lenguajes: [
       {
         nombre: "PHP",
-        color_bg: "slateblue",
+        color_bg: "#777BB4",
+        color: "white",
+      },
+      {
+        nombre: "MySQL",
+        color_bg: "#4479A1",
+        color: "white",
+      },
+      {
+        nombre: "Bootstrap",
+        color_bg: "#7952B3",
         color: "white",
       },
     ],
@@ -139,7 +159,7 @@ const proyectos = [
               class="hover:bg-gray-200 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none h-10 w-10"
             >
               <Image
-                src="https://img.icons8.com/?id=LPcVDft9Isqt&color=000000"
+                src="https://img.icons8.com/fluency/48/new-post.png"
                 width="32"
                 height="32"
                 alt="Email"
@@ -155,7 +175,7 @@ const proyectos = [
       </div>
     </div>
   </section>
-  <!-- Sección Sobre mi -->
+  <!-- Sección Sobre Mí -->
   <section id="sobre-mi" class="py-16 md:py-8 sm:m-10">
     <h2>Sobre Mí</h2>
     <p class="mb-1 mt-2 text-gray-500">
@@ -181,11 +201,8 @@ const proyectos = [
       </p>
     </div>
   </section>
-  <!-- Sección proyectos -->
-  <section
-    id="proyectos"
-    class="bg-gray-100 lg:p-10 lg:w-full py-16 md:py-8"
-  >
+  <!-- Sección Mis Proyectos -->
+  <section id="proyectos" class="bg-gray-100 lg:p-10 lg:w-full py-16 md:py-8">
     <div>
       <h2>Mis Proyectos</h2>
       <p class="mt-1 text-muted">
@@ -199,9 +216,11 @@ const proyectos = [
         proyectos.map((proyecto, index) => (
           <Proyecto
             key={index}
-            urlProyecto={proyecto.urlProyecto}
+            urlCodigo={proyecto.urlCodigo}
+            urlDemo={proyecto.urlDemo}
             urlImg={proyecto.urlImg}
             nombre={proyecto.nombre}
+            categoria={proyecto.categoria}
             descripcion={proyecto.descripcion}
             lenguajes={proyecto.lenguajes}
           />
@@ -209,10 +228,12 @@ const proyectos = [
       }
     </div>
   </section>
+  <!-- Sección Mis Habilidades -->
   <section id="habilidades" class="p-10 w-full">
     <h2>Mis habilidades WIP</h2>
     <p>En progreso...</p>
   </section>
+  <!-- Sección Contacto -->
   <section id="contacto" class="p-10 w-full">
     <h2>Contacto WIP</h2>
     <p>En progreso...</p>
@@ -220,18 +241,18 @@ const proyectos = [
   <footer class="p-4 text-gray-400">
     © 2025 Raúl Parada. Creado con una licencia MIT.
   </footer>
-
-  <style>
-    #sobre-mi {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    #intro {
-      background-image: url(/src/assets/background.svg);
-      background-position: center;
-      background-size: cover;
-    }
-  </style>
 </main>
+
+<style>
+  #sobre-mi {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #intro {
+    background-image: url(/src/assets/background.svg);
+    background-position: center;
+    background-size: cover;
+  }
+</style>

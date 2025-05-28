@@ -2,13 +2,21 @@
 import "../styles/global.css";
 import Lenguaje from "./Lenguaje.astro";
 import { Image } from "astro:assets";
-const { urlProyecto, urlImg, nombre, descripcion, lenguajes } = Astro.props;
+const {
+  urlCodigo,
+  urlDemo,
+  urlImg,
+  nombre,
+  categoria,
+  descripcion,
+  lenguajes,
+} = Astro.props;
 // Importa dinámicamente las imagenes
 import { imagenes } from "../lib/imagenes.ts";
 ---
 
-<div class="proyecto rounded-lg border shadow-sm overflow-hidden">
-  <a href={urlProyecto}>
+<article class="proyecto rounded-lg border shadow-sm overflow-hidden">
+  <div class="contenedor-imagen">
     <Image
       class="object-cover w-full h-60"
       src={imagenes[urlImg]()}
@@ -17,31 +25,101 @@ import { imagenes } from "../lib/imagenes.ts";
       width="360"
       format="webp"
     />
-    <div class="text-center">
-      <h1 class="text-x1 font-bold">{nombre}</h1>
-      <p class="text-gray-700">{descripcion}</p>
-      {
-        lenguajes.length > 0 && (
-          <div class="lenguajes mb-3">
-            {lenguajes.map(
-              (lang: { nombre: string; color_bg: string; color: string }) => (
-                <Lenguaje
-                  nombre={lang.nombre}
-                  color={lang.color}
-                  color_bg={lang.color_bg}
-                />
-              )
-            )}
-          </div>
-        )
-      }
+
+    <div class="badge-categoria">
+      <span class="icono-categoria">
+        {
+          categoria === "Bot Development" && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <polygon points="5,3 19,12 5,21" />
+            </svg>
+          )
+        }
+        {
+          categoria === "Game Development" && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          )
+        }
+        {
+          categoria === "Web Application" && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+              <path d="M3 12A9 3 0 0 0 21 12" />
+            </svg>
+          )
+        }
+      </span>
+      <span>{categoria}</span>
     </div>
-  </a>
-</div>
+  </div>
+
+  <div class="text-center">
+    <h3 class="text-2xl font-bold proyecto-titulo">{nombre}</h3>
+    <p class="text-gray-500 proyecto-descripcion">{descripcion}</p>
+    {
+      lenguajes.length > 0 && (
+        <div class="lenguajes mb-3">
+          {lenguajes.map(
+            (lang: { nombre: string; color_bg: string; color: string }) => (
+              <Lenguaje
+                nombre={lang.nombre}
+                color={lang.color}
+                color_bg={lang.color_bg}
+              />
+            )
+          )}
+        </div>
+      )
+    }
+  </div>
+
+  <div class="proyecto-botones">
+    {
+      urlDemo != null && (
+        <a href={urlDemo} class="link-btn demo-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+          </svg>
+          Ver Demo
+        </a>
+      )
+    }
+    <a href={urlCodigo} class="link-btn repo-btn ml-2 mr-2">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+        ></path>
+      </svg>
+      Código
+    </a>
+  </div>
+</article>
 
 <style>
   .proyecto {
-    width: 90%;
+    width: 100%;
     margin: 10px;
     border-radius: 20px;
     display: flex;
@@ -54,8 +132,120 @@ import { imagenes } from "../lib/imagenes.ts";
 
   .lenguajes {
     display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 8px 0px 6px 16px;
+  }
+
+  /* Contenedor de la imagen del proyecto */
+  .contenedor-imagen {
+    position: relative;
+    height: 240px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Badge del proyecto */
+  .badge-categoria {
+    position: absolute;
+    cursor: context-menu;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
     align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .badge-categoria:hover {
+    background: black;
+    transform: translateY(-1px);
+    box-shadow:
+      0 6px 16px rgba(0, 0, 0, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .icono-categoria {
+    height: 1rem;
+  }
+
+  .icono-categoria svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .proyecto-botones {
+    width: 95%;
+    margin: 0px 10px 10px 10px;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  /* Botón del proyecto */
+  .link-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex: 1;
     justify-content: center;
-    margin-top: 6px;
+  }
+
+  .link-btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Botón de demo */
+  .link-btn.demo-btn {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  }
+
+  .link-btn.demo-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  }
+
+  /* Botón de GitHub */
+  .link-btn.repo-btn {
+    background: #334155;
+    color: white;
+    border-color: #475569;
+    border: 1px solid white;
+  }
+
+  .link-btn.repo-btn:hover {
+    background: #475569;
+    color: white;
+  }
+
+  .proyecto-titulo {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .proyecto-descripcion {
+    line-height: 1.6;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 15px;
   }
 </style>
