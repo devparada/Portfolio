@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Proyecto from "./Proyecto.astro";
 import Boton from "./Boton.astro";
+import Habilidad from "./Habilidad.astro";
 
 // Array de todos los proyectos
 // NOTA: Si el color no aparece en algún lenguaje por defecto es de color negro
@@ -229,9 +230,27 @@ const proyectos = [
     </div>
   </section>
   <!-- Sección Mis Habilidades -->
-  <section id="habilidades" class="p-10 w-full">
-    <h2>Mis habilidades WIP</h2>
-    <p>En progreso...</p>
+  <section id="habilidades" class="lg:p-10 lg:w-full py-16 md:py-8">
+    <div>
+      <h2>Mis Habilidades WIP</h2>
+      <p class="mt-1 text-muted">
+        Tecnologías y herramientas con las que trabajo
+      </p>
+    </div>
+    <div
+      class="mt-5 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl m-auto"
+    >
+      <Habilidad
+        nombre="Frontend"
+        descripcion="HTML, CSS, JavaScript, React y Tailwind CSS"
+        urlImg="https://img.icons8.com/parakeet/48/code.png"
+      />
+      <Habilidad nombre="2" descripcion="2" urlImg="" />
+      <Habilidad nombre="3" descripcion="3" />
+      <Habilidad nombre="4" descripcion="4" />
+      <Habilidad nombre="5" descripcion="5" />
+      <Habilidad nombre="6" descripcion="6" />
+    </div>
   </section>
   <!-- Sección Contacto -->
   <section id="contacto" class="p-10 w-full">
@@ -241,18 +260,18 @@ const proyectos = [
   <footer class="p-4 text-gray-400">
     © 2025 Raúl Parada. Creado con una licencia MIT.
   </footer>
+
+  <style>
+    #sobre-mi {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #intro {
+      background-image: url(/src/assets/background.svg);
+      background-position: center;
+      background-size: cover;
+    }
+  </style>
 </main>
-
-<style>
-  #sobre-mi {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #intro {
-    background-image: url(/src/assets/background.svg);
-    background-position: center;
-    background-size: cover;
-  }
-</style>
