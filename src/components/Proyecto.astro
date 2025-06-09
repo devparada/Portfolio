@@ -1,5 +1,4 @@
 ---
-import "../styles/global.css";
 import Lenguaje from "./Lenguaje.astro";
 import { Image } from "astro:assets";
 const {
@@ -15,7 +14,9 @@ const {
 import { imagenes } from "../lib/imagenes.ts";
 ---
 
-<article class="proyecto rounded-lg border shadow-sm overflow-hidden">
+<article
+  class="border shadow-sm overflow-hidden w-full lg:m-2.5 md:m-0 sm:m-0 proyecto"
+>
   <div class="contenedor-imagen">
     <Image
       class="object-cover w-full h-60"
@@ -87,7 +88,7 @@ import { imagenes } from "../lib/imagenes.ts";
                 color={lang.color}
                 color_bg={lang.color_bg}
               />
-            )
+            ),
           )}
         </div>
       )
@@ -119,14 +120,11 @@ import { imagenes } from "../lib/imagenes.ts";
 
 <style>
   .proyecto {
-    width: 100%;
-    margin: 10px;
-    border-radius: 20px;
     display: flex;
-    align-items: center;
-    border: 1px solid gainsboro;
     flex-direction: column;
     align-items: center;
+    border: 1px solid gainsboro;
+    border-radius: 20px;
     gap: 10px;
   }
 
