@@ -1,9 +1,10 @@
 ---
+import { Image } from "astro:assets";
 const { nombre, descripcion, urlImg } = Astro.props;
 ---
 
 <article class="habilidades">
-  <img
+  <Image
     class="center mb-0.5"
     width="48"
     height="48"
@@ -16,6 +17,8 @@ const { nombre, descripcion, urlImg } = Astro.props;
 
 <style>
   .habilidades {
+    margin: 10px;
+    padding: 6px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -29,5 +32,9 @@ const { nombre, descripcion, urlImg } = Astro.props;
     margin-right: 0.5rem;
     margin-left: 0.5rem;
     font-size: 15px;
+  }
+
+  .habilidades:hover {
+    background-color: oklch(96.7% 0.003 264.542);
   }
 </style>
