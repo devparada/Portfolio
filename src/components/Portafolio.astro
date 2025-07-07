@@ -83,7 +83,7 @@ const proyectos = [
 ];
 ---
 
-<main class="text-center">
+<main class="text-center w-full">
   <section id="intro" class="py-20 pl-0 pr-0 md:py-26 bg-gray-100">
     <div class="px-4 md:px-6 m-auto">
       <div
@@ -155,7 +155,7 @@ const proyectos = [
               <span class="sr-only">LinkedIn</span>
             </button>
           </a>
-          <a href="mailto:raul.parada040103@email.com">
+          <a href="mailto:raul.parada040103@gmail.com">
             <button
               class="hover:bg-gray-200 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none h-10 w-10"
             >
@@ -203,18 +203,15 @@ const proyectos = [
     </div>
   </section>
   <!-- Sección Mis Proyectos -->
-  <section
-    id="proyectos"
-    class="bg-gray-100 lg:p-10 lg:w-full md:p-5 sm:p-2 py-16"
-  >
-    <div>
+  <section id="proyectos" class="bg-gray-100 lg:p-10 lg:w-full py-16 md:py-8">
+    <div class="max-w-3xl space-y-4 ml-3 mr-3">
       <h2>Mis Proyectos</h2>
       <p class="mt-1 text-muted">
         Una selección de los proyectos en los que he trabajado
       </p>
     </div>
     <div
-      class="mt-4 grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl m-auto"
+      class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-3 lg:mx-auto mt-4"
     >
       {
         proyectos.map((proyecto, index) => (
@@ -279,11 +276,12 @@ const proyectos = [
   <section id="contacto" class="lg:p-10 lg:w-full py-16 md:py-8 bg-gray-100">
     <h2>Contáctame</h2>
     <p class="mt-1 text-muted">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+
     <div
       class="grid lg:grid-cols-2 sm:grid-cols-1 justify-items-center mt-5 gap-8 w-full max-w-6xl m-auto"
     >
       <!-- Div Info -->
-      <div class="flex flex-col mt-2.25">
+      <div class="flex flex-col items-center mt-2.25">
         <div class="flex flex-row items-center mt-2">
           <Image
             src="https://img.icons8.com/fluency/48/new-post.png"
@@ -292,7 +290,7 @@ const proyectos = [
             alt="Email"
             loading="lazy"
           />
-          <p class="ml-1.5">raul.parada040103@email.com</p>
+          <p class="ml-1.5 sm:text-left">raul.parada040103@gmail.com</p>
         </div>
         <div class="flex flex-row items-center mt-2">
           <svg
@@ -312,7 +310,9 @@ const proyectos = [
             ></path>
           </svg>
           <span class="sr-only">LinkedIn</span>
-          <p class="ml-1.5">linkedin.com/in/raul-parada-de-la-fuente</p>
+          <p class="ml-1.5 sm:text-left">
+            linkedin.com/in/raul-parada-de-la-fuente
+          </p>
         </div>
         <div class="flex flex-row items-center mt-2">
           <svg
@@ -328,12 +328,12 @@ const proyectos = [
             ></path>
           </svg>
           <span class="sr-only">GitHub</span>
-          <p class="ml-1.5">github.com/devparada</p>
+          <p class="ml-1.5 sm:text-left">github.com/devparada</p>
         </div>
       </div>
       <!-- Formulario -->
-      <div>
-        <form class="py-2 w-100 text-center" id="contacto-formulario">
+      <div class="md:w-full">
+        <form class="md:py-2 text-center">
           <ol>
             <li class="mt-4 list-none">
               <label for="nombre">Nombre</label>
