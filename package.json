@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@tailwindcss/vite": "4.1.17",
-    "astro": "5.16.4",
+    "@tailwindcss/vite": "4.1.18",
+    "astro": "5.16.5",
     "sharp": "0.34.5",
-    "tailwindcss": "4.1.17",
-    "vite": "7.2.7"
+    "tailwindcss": "4.1.18",
+    "vite": "7.3.0"
   },
   "devDependencies": {
     "typescript": "5.9.3"
