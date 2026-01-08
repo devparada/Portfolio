@@ -1,0 +1,33 @@
+name: Portfolio CI
+
+permissions:
+  contents: read
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clona el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configura pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.27.0
+
+      - name: Configura Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "pnpm"
+
+      - name: Instala las dependencias
+        run: pnpm install --frozen-lockfile
+
+      - name: Contruir el proyecto
+        run: pnpm build
