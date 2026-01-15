@@ -1,3 +1,8 @@
 minimumReleaseAge: 1440 # 24 horas
+minimumReleaseAgeExclude:
+  - h3
+  - devalue
+  - diff
+  - ufo
 packages:
   - .
