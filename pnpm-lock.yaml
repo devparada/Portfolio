@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  h3: 1.15.5
-  devalue: 5.6.2
-  diff: 8.0.3
-
 importers:
 
   .:
