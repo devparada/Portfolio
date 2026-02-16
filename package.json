@@ -1,26 +1,26 @@
 {
   "name": "portfolio",
-  "type": "module",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@10.27.0",
-  "engines": {
-    "node": ">=24"
-  },
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "astro": "astro",
     "build": "astro build",
-    "preview": "astro build && astro preview",
-    "astro": "astro"
+    "dev": "astro dev",
+    "preview": "astro build && astro preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "4.1.18",
-    "astro": "5.17.1",
+    "astro": "5.17.2",
     "sharp": "0.34.5",
     "tailwindcss": "4.1.18",
     "vite": "7.3.1"
   },
   "devDependencies": {
     "typescript": "5.9.3"
+  },
+  "packageManager": "pnpm@10.27.0",
+  "engines": {
+    "node": ">=24"
   }
 }
