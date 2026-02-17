@@ -1,18 +1,17 @@
 ---
-const { nombre, color_bg, color } = Astro.props;
+const { nombre } = Astro.props;
 ---
 
-<button class="lenguajes" style={`--color-bg: ${color_bg}; --color: ${color}`}
-  >{nombre}</button
->
+<button class="lenguajes">{nombre}</button>
 
 <style>
   .lenguajes {
     padding: 0.25rem 0.75rem;
-    background-color: var(--color-bg);
-    color: var(--color);
+    background-color: var(--color-main-bg);
+    color: var(--color-primary-foreground);
     font-weight: bold;
     font-size: 0.75rem;
     border-radius: 25px;
+    border: 1px solid var(--color-border);
   }
 </style>

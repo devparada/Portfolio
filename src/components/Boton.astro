@@ -1,20 +1,10 @@
 ---
-const { url, texto } = Astro.props;
+const { url } = Astro.props;
 ---
 
 <a
   href={url}
-  class="boton inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium bg-white border border-violet-500 text-violet-500 h-10 px-4 py-2"
-  role="button">{texto}</a
+  class="group inline-flex items-center gap-2 rounded-full border border-violet-500/50 bg-violet-950/50 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300"
 >
-
-<style>
-  .boton {
-    transition: background-color 0.2s;
-  }
-
-  .boton:hover {
-    background-color: oklch(60.6% 0.25 292.717);
-    color: white;
-  }
-</style>
+  <slot />
+</a>

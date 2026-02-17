@@ -1,0 +1,35 @@
+---
+import SocialIcon from "./SocialIcon.astro";
+---
+
+<footer class="px-6 py-12 md:px-12 lg:px-16">
+  <div class="max-w-5xl mx-auto flex flex-row justify-between items-center">
+    <div>
+      <p class="text-sm font-medium text-white mb-1">
+        Disponible para trabajar
+      </p>
+      <p class="text-xs text-gray-500">email@test.com</p>
+    </div>
+
+    <div class="flex gap-2">
+      <SocialIcon
+        classExtra="border border-gray-700"
+        name="github"
+        href="https://github.com/tu-user"
+        label="GitHub"
+      />
+      <SocialIcon
+        classExtra="border border-gray-700"
+        name="linkedin"
+        href="https://linkedin.com/in/tu-user"
+        label="LinkedIn"
+      />
+      <SocialIcon
+        classExtra="border border-gray-700"
+        name="email"
+        href="mailto:tu@email.com"
+        label="Email"
+      />
+    </div>
+  </div>
+</footer>

@@ -3,56 +3,50 @@ import { Image } from "astro:assets";
 import Proyecto from "./Proyecto.astro";
 import Boton from "./Boton.astro";
 import Habilidad from "./Habilidad.astro";
+import Footer from "./Footer.astro";
 
-// Array de todos los proyectos
-// NOTA: Si el color no aparece en algún lenguaje por defecto es de color negro
 const proyectos = [
   {
     nombre: "RitmosBot",
     urlCodigo: "https://github.com/devparada/RitmosBot",
     urlDemo: "https://ritmosweb.vercel.app",
     urlImg: "/src/assets/ritmos-proyecto.png",
-    categoria: "Bot Development",
     descripcion:
-      "Bot de música que permite a los usuarios disfrutar de su música en Discord",
+      "Bot de música que permite a los usuarios disfrutar de su música en Discord con comandos simples.",
     lenguajes: [
       {
         nombre: "NodeJS",
-        color_bg: "#339933",
-        color: "white",
       },
       {
         nombre: "JavaScript",
-        color_bg: "#F7DF1E",
+      },
+      {
+        nombre: "TypeScript",
+      },
+      {
+        nombre: "Jest",
       },
       {
         nombre: "Discord.js",
-        color_bg: "#5865F2",
-        color: "white",
       },
     ],
   },
   {
     nombre: "TresEnrayaJS",
     urlCodigo: "https://github.com/devparada/TresEnRayaJS",
-    urlDemo: "https://tresenrayajs.vercel.app",
+    urlDemo: "https://tresenraya.devparada.dev",
     urlImg: "/src/assets/tresenrayajs-proyecto.png",
-    categoria: "Game Development",
-    descripcion: "Tres en raya realizado usando HTML5, JavaScript y Bootstrap",
+    descripcion:
+      "Versión del tres en raya en la que puedes jugar contra la CPU o contra otro jugador en la misma pantalla.",
     lenguajes: [
       {
         nombre: "HTML5",
-        color_bg: "#E34F26",
-        color: "white",
       },
       {
         nombre: "CSS3",
-        color_bg: "#1572B6",
-        color: "white",
       },
       {
         nombre: "JavaScript",
-        color_bg: "#F7DF1E",
       },
     ],
   },
@@ -60,24 +54,17 @@ const proyectos = [
     nombre: "TaskVelocity",
     urlCodigo: "https://github.com/devparada/taskvelocity",
     urlImg: "/src/assets/taskvelocity-proyecto.png",
-    categoria: "Web Application",
     descripcion:
-      "Proyecto de fin de ciclo que gestiona tareas y proyectos de cada usuario",
+      "Proyecto de fin de ciclo de desarrollo de aplicaciones web, que permite a los usuarios gestionar sus tareas de manera eficiente y visual.",
     lenguajes: [
       {
         nombre: "PHP",
-        color_bg: "#777BB4",
-        color: "white",
       },
       {
         nombre: "MySQL",
-        color_bg: "#4479A1",
-        color: "white",
       },
       {
         nombre: "Bootstrap",
-        color_bg: "#7952B3",
-        color: "white",
       },
     ],
   },
@@ -85,239 +72,171 @@ const proyectos = [
 ---
 
 <main class="text-center w-full">
-  <section id="intro" class="py-20 pl-0 pr-0 md:py-26 bg-gray-100">
-    <div class="px-4 md:px-6 m-auto">
-      <div
-        class="flex flex-col justify-center space-y-4 max-w-3xl mx-auto text-center"
-      >
-        <Image
-          class="mx-auto"
-          src="/avatar.webp"
-          alt="Avatar"
-          height="120"
-          width="120"
-          loading="eager"
-        />
-        <div class="space-y-6">
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.03]"
+    style="background-image:linear-gradient(hsl(0 0% 50%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 50%) 1px, transparent 1px);background-size:60px 60px"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15 blur-[120px]"
+    style="background:hsl(265 90% 68%)"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="px-4 md:px-6 flex justify-center h-screen">
+    <div
+      class="flex flex-col justify-center space-y-4 max-w-3xl mx-auto text-center"
+    >
+      <Image
+        class="mx-auto"
+        src="/avatar.webp"
+        alt="Avatar"
+        height="120"
+        width="120"
+        loading="eager"
+      />
+      <div class="space-y-6">
+        <div>
           <h1
-            class="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground text-balance"
+            class="text-6xl sm:text-7xl lg:text-8xl font-bold text-foreground text-balance mb-2"
           >
-            Hola, soy Raúl Parada
+            Raúl
           </h1>
-          <h2
-            class="text-gray-500 md:text-xl text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto text-pretty"
+          <h1
+            class="text-6xl sm:text-7xl lg:text-8xl font-bold text-foreground text-balance"
           >
-            Desarrollador web especializado en crear sitios web y experiencias
-            digitales modernas que conectan con los usuarios
-          </h2>
+            Parada
+          </h1>
         </div>
-        <div class="flex gap-2 justify-center">
-          <a
-            href="https://github.com/devparada"
-            target="_blank"
-            rel="noopener noreferrer"
+        <p class="pt-2">FRONTEND DEV</p>
+        <h2
+          class="text-gray-400 md:text-xl text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto text-pretty pt-2"
+        >
+          Desarrollador web junior con ganas de crear sitios web y experiencias
+          digitales modernas que conectan con los usuarios.
+        </h2>
+      </div>
+      <div class="flex justify-center mt-10">
+        <Boton url="#proyectos">
+          <span>Ver mis proyectos</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-arrow-down h-4 w-4 animate-bounce group-hover:text-violet-300"
+            aria-hidden="true"
           >
-            <button
-              class="hover:bg-gray-200 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none h-10 w-10"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="32"
-                height="32"
-                viewBox="0 0 30 30"
-              >
-                <path
-                  d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"
-                ></path>
-              </svg>
-              <span class="sr-only">GitHub</span>
-            </button>
-          </a>
-          <a
-            href="https://es.linkedin.com/in/raul-parada-de-la-fuente"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button
-              class="hover:bg-gray-200 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none h-10 w-10"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="32"
-                height="32"
-                viewBox="0 0 48 48"
-              >
-                <path
-                  fill="#0288D1"
-                  d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"
-                ></path><path
-                  fill="#FFF"
-                  d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z"
-                ></path>
-              </svg>
-              <span class="sr-only">LinkedIn</span>
-            </button>
-          </a>
-          <a href="mailto:raul.parada040103@gmail.com">
-            <button
-              class="hover:bg-gray-200 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none h-10 w-10"
-            >
-              <Image
-                src="https://img.icons8.com/fluency/48/new-post.png"
-                width="32"
-                height="32"
-                alt="Email"
-                loading="eager"
-              />
-            </button>
-          </a>
-        </div>
-        <div class="flex gap-2 flex-row justify-center">
-          <Boton url="#proyectos" texto="Ver mis proyectos" />
-          <Boton url="#contacto" texto="Contáctame" />
+            <path d="M12 5v14"></path>
+            <path d="m19 12-7 7-7-7"></path>
+          </svg>
+        </Boton>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Sección Sobre Mí -->
+<section id="sobre-mi" class="relative px-6 py-24 md:px-12 lg:px-16 lg:py-32">
+  <div class="mx-auto max-w-5xl">
+    <h2 class="titulo-apartados">Sobre Mí</h2>
+    <p
+      class="mt-4 max-w-3xl text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl transition-all duration-1000 translate-y-0 opacity-100"
+    >
+      Me apasiona construir cosas para <span class="text-purple-500"
+        >la web</span
+      >.
+    </p>
+    <div class="mt-12 grid gap-16 lg:grid-cols-5">
+      <div
+        class="flex flex-col gap-5 text-secondary-foreground leading-relaxed lg:col-span-3 transition-all duration-1000 delay-200 translate-y-0 opacity-100"
+      >
+        <p>
+          Soy un desarrollador web junior en la creación de aplicaciones web
+          modernas y responsivas. Mi enfoque se centra en propocionar soluciones
+          elegantes a problemas complejos, manteniendo un enfoque en la
+          usabilidad y accesibilidad como prioridades.
+        </p>
+        <p>
+          Tengo algunos proyectos interesantes que abarcan desde frontend usando
+          Bootstrap y Tailwind hasta backend usando PHP y Spring Boot y algunos
+          cuentan con Github Actions para verificar que los tests y las reglas
+          pasen correctamente.
+        </p>
+        <p>
+          Cuando no estoy programando, disfruto de videojuegos y Minecraft y
+          creo que es clave mantener un equilibrio entre la vida profesional y
+          personal para la creatividad y la productividad.
+        </p>
+      </div>
+      <div
+        class="lg:col-span-2 transition-all duration-1000 delay-400 translate-y-0 opacity-100"
+      >
+        <p class="mb-5">Tecnologías</p>
+        <div class="grid grid-cols-2 gap-2.5">
+          <Habilidad nombre="HTML/CSS" />
+          <Habilidad nombre="JavaScript" />
+          <Habilidad nombre="TypeScript" />
+          <Habilidad nombre="Astro" />
+          <Habilidad nombre="React" />
+          <Habilidad nombre="MySQL/MariaDB" />
+          <Habilidad nombre="Java" />
+          <Habilidad nombre="Github Actions" />
+          <Habilidad nombre="Jest" />
+          <Habilidad nombre="Tailwind/BootStrap" />
+          <Habilidad nombre="Penpot" />
+          <Habilidad nombre="Python" />
         </div>
       </div>
     </div>
-  </section>
-  <!-- Sección Sobre Mí -->
-  <section id="sobre-mi" class="py-16 md:py-8 sm:m-10">
-    <h2 class="titulo-apartados">Sobre Mí</h2>
-    <p class="mb-1 mt-2 text-gray-500">
-      Conoce más sobre mi experiencia y trayectoria profesional
+  </div>
+</section>
+<!-- Sección Proyectos -->
+<section id="proyectos" class="max-w-5xl space-y-4 text-left mt-10 m-auto">
+  <div class="mx-auto max-w-5xl">
+    <h2 class="titulo-apartados text-left">Proyectos</h2>
+    <h3 class="font-bold text-6xl mb-4">Lo que he construido</h3>
+    <p class="mt-1 text-muted text-left">
+      Algunos proyectos personales en los que he trabajado.
     </p>
-    <div class="max-w-3xl space-y-4 lg:text-left ml-3 mr-3 lg:m-auto">
-      <p>
-        Soy un desarrollador web junior en la creación de aplicaciones web
-        modernas y responsivas. Mi enfoque se centra en propocionar soluciones
-        elegantes a problemas complejos, manteniendo un enfoque en la usabilidad
-        y accesibilidad como prioridades.
-      </p>
-      <p>
-        Tengo algunos proyectos interesantes que abarcan desde frontend usando
-        Bootstrap y Tailwind hasta backend usando PHP y Spring Boot y algunos
-        cuentan con Github Actions para verificar que los tests y las reglas
-        pasen correctamente.
-      </p>
-      <p>
-        Cuando no estoy programando, disfruto de videojuegos y Minecraft y creo
-        que es clave mantener un equilibrio entre la vida profesional y personal
-        para la creatividad y la productividad.
-      </p>
-    </div>
-  </section>
-  <!-- Sección Proyectos destacados -->
-  <section id="proyectos" class="bg-gray-100 lg:p-10 lg:w-full py-16 md:py-8">
-    <div class="space-y-4 ml-3 mr-3">
-      <h2 class="titulo-apartados">Proyectos destacados</h2>
-      <p class="mt-1 text-muted">
-        Una selección de los proyectos en los que he trabajado
-      </p>
-    </div>
-    <div
-      class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-3 lg:mx-auto mt-4"
-    >
-      {
-        proyectos.map((proyecto, index) => (
-          <Proyecto
-            key={index}
-            urlCodigo={proyecto.urlCodigo}
-            urlDemo={proyecto.urlDemo}
-            urlImg={proyecto.urlImg}
-            nombre={proyecto.nombre}
-            categoria={proyecto.categoria}
-            descripcion={proyecto.descripcion}
-            lenguajes={proyecto.lenguajes}
-          />
-        ))
-      }
-    </div>
-  </section>
-  <!-- Sección Mis Habilidades -->
-  <section id="habilidades" class="lg:p-10 lg:w-full py-16 md:py-8">
-    <div>
-      <h2 class="titulo-apartados">Mis Habilidades</h2>
-      <p class="mt-1 text-muted">
-        Tecnologías y herramientas con las que trabajo
-      </p>
-    </div>
-    <div
-      class="mt-5 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl m-auto"
-    >
-      <Habilidad
-        nombre="Frontend"
-        descripcion="HTML, CSS, JavaScript, React y Tailwind CSS"
-        urlImg="https://img.icons8.com/parakeet/48/code.png"
-      />
-      <Habilidad
-        nombre="Backend"
-        descripcion="Node.js, MongoDB y SQL"
-        urlImg="https://img.icons8.com/dusk/64/cloud.png"
-      />
-      <Habilidad
-        nombre="Diseño"
-        descripcion="UI/UX, Penpot, Canva, Diseño responsivo y Accesibilidad"
-        urlImg="https://img.icons8.com/ios-filled/50/pencil--v1.png"
-      />
-      <Habilidad
-        nombre="DevOps"
-        descripcion="Git, GitHub, CI/CD, Docker, AWS, Vercel y Netlify"
-        urlImg="https://img.icons8.com/external-soft-fill-juicy-fish/60/external-dev-coding-and-development-soft-fill-soft-fill-juicy-fish.png"
-      />
-      <Habilidad
-        nombre="Seguridad"
-        descripcion="Autenticación, Autorización, OWASP y Mejores prácticas de seguridad"
-        urlImg="https://img.icons8.com/pulsar-gradient/48/keyhole-shield.png"
-      />
-      <Habilidad
-        nombre="Soft Skills"
-        descripcion="Comunicación, Trabajo en equipo, Resolución de problemas y Gestión del tiempo"
-        urlImg="https://img.icons8.com/stickers/100/communication-skills.png"
-      />
-    </div>
-  </section>
-  <!-- Sección Contacto -->
-  <section id="contacto" class="lg:p-10 lg:w-full py-16 md:py-8 bg-gray-100">
-    <h2 class="titulo-apartados">Contáctame</h2>
-    <p class="mt-1 text-muted">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto mt-10">
+    {
+      proyectos.map((proyecto, index) => {
+        // Definimos si este proyecto debe ser el "Destacado" (ancho completo)
+        // Por ejemplo: el primero (index 0) o cada tres (index % 3 === 0)
+        const isFeatured = index % 3 === 0;
 
-    <!-- Div Info -->
-    <div
-      class="flex flex-row gap-5 items-center justify-items-center justify-center mt-4"
-    >
-      <Boton
-        url="mailto:raul.parada040103@gmail.com"
-        texto="Correo electrónico"
-      />
-      <Boton
-        url="https://www.linkedin.com/in/raul-parada-de-la-fuente/"
-        texto="LinkedIn"
-      />
-      <Boton url="https://github.com/devparada" texto="GitHub" />
-    </div>
-  </section>
-</main>
-<footer class="p-4 text-gray-400 text-center">
-  © 2025 Raúl Parada (devparada). Creado con ♥️
-</footer>
+        return (
+          <div class={isFeatured ? "md:col-span-2" : "md:col-span-1"}>
+            <Proyecto
+              isFeatured={isFeatured}
+              urlCodigo={proyecto.urlCodigo}
+              urlDemo={proyecto.urlDemo}
+              urlImg={proyecto.urlImg}
+              nombre={proyecto.nombre}
+              descripcion={proyecto.descripcion}
+              lenguajes={proyecto.lenguajes}
+            />
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
+<!-- Sección Mis Habilidades -->
+<section class="max-w-4xl mx-auto mt-10 px-4">
+  <div></div>
+</section>
+<Footer />
 
 <style>
-  #sobre-mi {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #intro {
-    background-image: url(/src/assets/background.svg);
-    background-position: center;
-    background-size: cover;
-  }
-
   .titulo-apartados {
-    font-weight: bold;
-    font-size: 28px;
+    color: var(--color-primary);
   }
 </style>

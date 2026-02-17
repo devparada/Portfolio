@@ -1,20 +1,18 @@
 @import "tailwindcss";
 
-/* Aquí van los estilos globales */
-
-label {
-    font-weight: 500;
+/* Variables CSS */
+:root {
+  --color-main-bg: hsl(255 18% 5%);
+  --color-primary: hsl(265 90% 68%);
+  --color-primary-foreground: hsl(265 90% 68%);
+  --color-border: hsla(0 0% 100% / 0.1);
 }
 
-input[type="text"], input[type="email"], textarea {
-    border: 1px gainsboro solid;
-    border-radius: 6px;
-    width: 100%;
-    margin-top: 2px;
-    padding: 5px;
-    background-color: white;
-}
-
-input[type="text"]:hover, input[type="email"]:hover, textarea:hover {
-    border: 1px oklch(60.6% 0.25 292.717) solid;
+@layer base {
+  body {
+    background-color: var(--color-main-bg);
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }

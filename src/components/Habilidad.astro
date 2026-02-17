@@ -1,40 +1,9 @@
 ---
-import { Image } from "astro:assets";
-const { nombre, descripcion, urlImg } = Astro.props;
+const { nombre } = Astro.props;
 ---
 
-<article class="habilidades">
-  <Image
-    class="center mb-0.5"
-    width="48"
-    height="48"
-    src={urlImg}
-    alt=`Icono ${nombre}`
-  />
-  <h3 class="text-2xl font-bold mb-0.5">{nombre}</h3>
-  <p class="text-gray-500 habilidad-descripcion">{descripcion}</p>
-</article>
-
-<style>
-  .habilidades {
-    margin: 10px;
-    padding: 6px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .habilidad-descripcion {
-    line-height: 1.6;
-    margin-top: 0.6rem;
-    margin-bottom: 0.6rem;
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
-    font-size: 15px;
-  }
-
-  .habilidades:hover {
-    background-color: oklch(96.7% 0.003 264.542);
-  }
-</style>
+<div
+  class="rounded-lg border border-gray-700 px-3.5 py-2.5 text-sm text-foreground transition-all hover:border-purple-600"
+>
+  <p class="mb-0.5">{nombre}</p>
+</div>
