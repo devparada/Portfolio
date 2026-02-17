@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import SocialIcon from "./SocialIcon.astro";
+import { SITE_DATA } from "../constants/contants";
 ---
 
 <header class="w-full">
@@ -41,15 +42,19 @@ import SocialIcon from "./SocialIcon.astro";
       <div class="flex gap-2 justify-center">
         <SocialIcon
           name="github"
-          href="https://github.com/tu-user"
+          href={SITE_DATA.socials.github}
           label="GitHub"
         />
         <SocialIcon
           name="linkedin"
-          href="https://linkedin.com/in/tu-user"
+          href={SITE_DATA.socials.linkedin}
           label="LinkedIn"
         />
-        <SocialIcon name="email" href="mailto:tu@email.com" label="Email" />
+        <SocialIcon
+          name="email"
+          href={`mailto:${SITE_DATA.email}`}
+          label="Email"
+        />
       </div>
     </div>
   </nav>

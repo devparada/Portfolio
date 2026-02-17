@@ -1,5 +1,6 @@
 ---
 import SocialIcon from "./SocialIcon.astro";
+import { SITE_DATA } from "../constants/contants";
 ---
 
 <footer class="px-6 py-12 md:px-12 lg:px-16">
@@ -8,26 +9,28 @@ import SocialIcon from "./SocialIcon.astro";
       <p class="text-sm font-medium text-white mb-1">
         Disponible para trabajar
       </p>
-      <p class="text-xs text-gray-500">email@test.com</p>
+      <a href={`mailto:${SITE_DATA.email}`} class="text-xs text-gray-500"
+        >{SITE_DATA.email}</a
+      >
     </div>
 
     <div class="flex gap-2">
       <SocialIcon
         classExtra="border border-gray-700"
         name="github"
-        href="https://github.com/tu-user"
+        href={SITE_DATA.socials.github}
         label="GitHub"
       />
       <SocialIcon
         classExtra="border border-gray-700"
         name="linkedin"
-        href="https://linkedin.com/in/tu-user"
+        href={SITE_DATA.socials.linkedin}
         label="LinkedIn"
       />
       <SocialIcon
         classExtra="border border-gray-700"
         name="email"
-        href="mailto:tu@email.com"
+        href={`mailto:${SITE_DATA.email}`}
         label="Email"
       />
     </div>
