@@ -10,6 +10,7 @@
     "preview": "astro build && astro preview"
   },
   "dependencies": {
+    "@lucide/astro": "0.564.0",
     "@tailwindcss/vite": "4.1.18",
     "astro": "5.17.2",
     "sharp": "0.34.5",
@@ -17,6 +18,7 @@
     "vite": "7.3.1"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "3.7.0",
     "typescript": "5.9.3"
   },
   "packageManager": "pnpm@10.27.0",
