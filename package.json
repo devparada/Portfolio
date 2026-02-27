@@ -22,6 +22,11 @@
     "typescript": "5.9.3"
   },
   "packageManager": "pnpm@10.27.0",
+  "pnpm": {
+    "overrides": {
+      "rollup": "4.59.0"
+    }
+  },
   "engines": {
     "node": ">=24"
   }
