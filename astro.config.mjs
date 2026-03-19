@@ -7,9 +7,13 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://devparada.dev',
+  prefetch: true,
   integrations: [sitemap()],
   vite: {
     // @ts-ignore - Conflicto de tipos entre Vite 6 y 7
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      cssMinify: 'lightningcss'
+    }
   }
 });
