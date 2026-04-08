@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -10,10 +9,15 @@ export default defineConfig({
   prefetch: true,
   integrations: [sitemap()],
   vite: {
-    // @ts-ignore - Conflicto de tipos entre Vite 6 y 7
+    // @ts-ignore - Conflicto de tipos en Vite 7
     plugins: [tailwindcss()],
     build: {
       cssMinify: 'lightningcss'
+    },
+    resolve: {
+      alias: {
+        '@': '/src'
+      }
     }
   }
 });

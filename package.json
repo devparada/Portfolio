@@ -15,7 +15,7 @@
     "astro": "6.1.4",
     "sharp": "0.34.5",
     "tailwindcss": "4.2.2",
-    "vite": "8.0.7"
+    "vite": "7.3.2"
   },
   "devDependencies": {
     "@astrojs/sitemap": "3.7.2",
@@ -27,7 +27,8 @@
   },
   "pnpm": {
     "overrides": {
-      "picomatch": "4.0.4"
+      "picomatch": "4.0.4",
+      "vite": "7.3.2"
     }
   }
 }
