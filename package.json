@@ -10,12 +10,12 @@
     "preview": "astro build && astro preview"
   },
   "dependencies": {
-    "@lucide/astro": "1.7.0",
+    "@lucide/astro": "1.8.0",
     "@tailwindcss/vite": "4.2.2",
     "astro": "6.1.4",
     "sharp": "0.34.5",
     "tailwindcss": "4.2.2",
-    "vite": "7.3.2"
+    "vite": "8.0.8"
   },
   "devDependencies": {
     "@astrojs/sitemap": "3.7.2",
@@ -28,7 +28,7 @@
   "pnpm": {
     "overrides": {
       "picomatch": "4.0.4",
-      "vite": "7.3.2"
+      "vite": "8.0.8"
     }
   }
 }
