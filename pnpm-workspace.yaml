@@ -1,6 +1,11 @@
 allowBuilds:
   esbuild: false
   sharp: false
+overrides:
+  devalue: 5.8.1
 minimumReleaseAge: 1440 # 24 horas
 packages:
   - .
+minimumReleaseAgeExclude:
+  - devalue
+  - astro
