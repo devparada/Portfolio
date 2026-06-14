@@ -1,6 +1,8 @@
 allowBuilds:
   esbuild: false
   sharp: false
+overrides:
+  esbuild: 0.28.1
 minimumReleaseAge: 1440 # 24 horas
 packages:
   - .
