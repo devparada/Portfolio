@@ -10,10 +10,10 @@
     "preview": "astro build && astro preview"
   },
   "dependencies": {
-    "@lucide/astro": "1.18.0",
+    "@lucide/astro": "1.21.0",
     "@tailwindcss/vite": "4.3.1",
     "astro": "6.4.6",
-    "sharp": "0.35.1",
+    "sharp": "0.35.2",
     "tailwindcss": "4.3.1",
     "vite": "7.3.5"
   },
