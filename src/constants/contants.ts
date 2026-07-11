@@ -12,7 +12,7 @@ export const PROYECTOS = [
       { nombre: "NodeJS" },
       { nombre: "JavaScript" },
       { nombre: "TypeScript" },
-      { nombre: "Jest" },
+      { nombre: "Vitest" },
       { nombre: "Discord.js" },
     ],
   },
@@ -45,7 +45,7 @@ export const PROYECTOS = [
     nombre: "Proyecto Pendiente",
     urlCodigo: "https://github.com/devparada",
     urlDemo: "https://devparada.dev",
-    urlImg: "/src/assets/ritmos-proyecto.png",
+    urlImg: "/src/assets/placeholder.png",
     descripcion:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vivamus elementum semper nisi.",
     lenguajes: [
@@ -61,13 +61,13 @@ export const CERTIFICACIONES = [
     nombre: "Drupal 11 Backend",
     empresa: "Forcontu",
     fecha: "Abril 2026",
-    url: "#",
+    url: "https://devparada.dev",
   },
   {
     nombre: "FCOI12 - Análisis de Información Digital",
     empresa: "Junta de Galicia",
     fecha: "Enero 2026",
-    url: "#",
+    url: "https://devparada.dev",
   },
 ];
 
@@ -81,5 +81,5 @@ export const REDES_SOCIALES = {
 export const STACK_TECNOLOGICO = {
   frontend: ["JavaScript", "TypeScript", "React", "Astro", "Tailwind CSS"],
   backend: ["Node.js", "Java", "MySQL"],
-  herramientas: ["Git", "Docker", "Figma"],
+  herramientas: ["Git", "Docker", "Figma", "Vitest"],
 };
