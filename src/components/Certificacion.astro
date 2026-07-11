@@ -1,0 +1,69 @@
+---
+interface Props {
+  nombre: string;
+  empresa: string;
+  fecha: string;
+  url: string;
+}
+
+const { nombre, empresa, fecha, url } = Astro.props;
+---
+
+<div
+  class="bg-[#0b0c10]/50 border border-purple-500/10 rounded-2xl p-6 hover:border-purple-500/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] group flex flex-col h-full"
+>
+  <div class="flex items-start gap-4 mb-4">
+    <div
+      class="bg-purple-500/10 p-3 rounded-xl shrink-0 group-hover:bg-purple-500/20 transition-colors"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="text-purple-400"
+      >
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+        <path d="m9 12 2 2 4-4"></path>
+      </svg>
+    </div>
+    <div>
+      <h4
+        class="text-white font-semibold text-lg leading-tight mb-1 group-hover:text-purple-300 transition-colors"
+      >
+        {nombre}
+      </h4>
+      <p class="text-gray-400 text-sm">{empresa}</p>
+      <p class="text-gray-500 text-xs mt-1">{fecha}</p>
+    </div>
+  </div>
+  <div class="mt-auto pt-4 flex">
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-purple-400 text-sm font-medium hover:text-purple-300 flex items-center gap-1 transition-colors"
+    >
+      Ver credencial
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+      </svg>
+    </a>
+  </div>
+</div>

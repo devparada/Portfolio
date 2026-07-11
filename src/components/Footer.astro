@@ -1,38 +1,55 @@
 ---
-import SocialIcon from "./SocialIcon.astro";
-import { SITE_DATA } from "../constants/contants";
+import { REDES_SOCIALES } from "../constants/contants";
 ---
 
-<footer class="px-6 py-12 md:px-12 lg:px-16">
-  <div class="max-w-5xl mx-auto flex flex-row justify-between items-center">
-    <div>
-      <p class="text-sm font-medium text-white mb-1">
-        Disponible para trabajar
-      </p>
-      <a href={`mailto:${SITE_DATA.email}`} class="text-xs text-gray-500"
-        >{SITE_DATA.email}</a
+<footer id="contacto" class="relative px-6 py-32 md:px-12 lg:px-16 overflow-hidden bg-[#050505]">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_center,rgba(168,85,247,0.15),transparent_50%)] pointer-events-none"></div>
+  
+  <div class="max-w-4xl mx-auto flex flex-col items-center justify-center space-y-8 relative z-10 text-center">
+    <h2 class="font-black text-5xl md:text-7xl tracking-tight text-white pb-2">
+      ¿Trabajamos juntos?
+    </h2>
+    <p class="text-gray-400 text-lg md:text-xl max-w-2xl text-pretty leading-relaxed">
+      Si tienes una idea en mente, un proyecto en curso o simplemente quieres saludar, mi bandeja de entrada siempre está abierta. Construyamos algo increíble juntos.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-6 mt-12 pt-4">
+      <a
+        href={`mailto:${REDES_SOCIALES.email}`}
+        class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-2xl overflow-hidden transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
       >
+        <span class="absolute inset-0 bg-linear-to-r from-purple-200 to-white opacity-0 group-hover:opacity-100 transition-opacity"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="relative z-10"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <span class="relative z-10">Envíame un Email</span>
+      </a>
+      
+      <a
+        href={REDES_SOCIALES.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#0b0c10] border border-gray-800 text-white font-bold rounded-2xl hover:bg-gray-800 hover:border-gray-600 transition-all hover:scale-105"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+
+      <a
+        href={REDES_SOCIALES.discord}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#5865F2]/10 border border-[#5865F2]/30 text-[#5865F2] font-bold rounded-2xl hover:bg-[#5865F2] hover:text-white transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(88,101,242,0.4)]"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.636 1.612-1.438 1.612Z"/>
+        </svg>
+        Discord
+      </a>
     </div>
 
-    <div class="flex gap-2">
-      <SocialIcon
-        classExtra="border border-gray-700"
-        name="github"
-        href={SITE_DATA.socials.github}
-        label="GitHub"
-      />
-      <SocialIcon
-        classExtra="border border-gray-700"
-        name="linkedin"
-        href={SITE_DATA.socials.linkedin}
-        label="LinkedIn"
-      />
-      <SocialIcon
-        classExtra="border border-gray-700"
-        name="email"
-        href={`mailto:${SITE_DATA.email}`}
-        label="Email"
-      />
-    </div>
+    <div class="w-full h-px bg-linear-to-r from-transparent via-gray-800 to-transparent mt-20 mb-8"></div>
+    
+    <p class="text-gray-500 text-sm font-medium flex items-center gap-2">
+      © {new Date().getFullYear()} Raúl Parada. Diseñado con <span class="text-purple-500 animate-pulse">♥</span>
+    </p>
   </div>
 </footer>

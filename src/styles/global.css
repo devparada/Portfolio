@@ -16,3 +16,70 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+/* Scroll Reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glitch Effect */
+.glitch-hover:hover {
+  animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: #a855f7;
+  text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9;
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+
+  20% {
+    transform: skew(-20deg);
+  }
+
+  40% {
+    transform: skew(20deg);
+  }
+
+  60% {
+    transform: skew(-10deg);
+  }
+
+  80% {
+    transform: skew(10deg);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+    opacity: 0;
+  }
+
+  50% {
+    border-color: white;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

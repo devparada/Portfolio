@@ -1,61 +1,66 @@
 ---
-import { Image } from "astro:assets";
-import SocialIcon from "./SocialIcon.astro";
-import { SITE_DATA } from "../constants/contants";
 ---
 
-<header class="w-full">
+<header class="fixed top-0 w-full z-50 bg-[#0b0c10]/80 backdrop-blur-md border-b border-purple-500/10">
   <nav
-    class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
+    class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
     aria-label="Global"
   >
     <div class="flex lg:flex-1">
-      <a href="https://devparada.dev">
-        <Image
-          class="mx-auto"
-          src="/avatar.webp"
-          alt="Avatar"
-          height="40"
-          width="40"
-          loading="eager"
-        />
+      <a href="https://devparada.dev" class="text-xl font-bold text-white tracking-tight hover:text-purple-400 transition-colors glitch-hover">
+        Raúl
       </a>
     </div>
+
+    <!-- Nav links: desktop -->
     <div class="hidden lg:flex lg:gap-x-8">
-      <a
-        href="#proyectos"
-        class="text-sm/6 font-semibold hover:underline underline-offset-4"
-        >Proyectos</a
-      >
-      <a
-        href="#sobre-mi"
-        class="text-sm/6 font-semibold hover:underline underline-offset-4"
-        >Sobre mí</a
-      >
-      <a
-        href="#contacto"
-        class="text-sm/6 font-semibold hover:underline underline-offset-4"
-        >Experiencia</a
-      >
+      <a href="#proyectos" class="text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors">Proyectos</a>
+      <a href="#certificaciones" class="text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors">Certificaciones</a>
+      <a href="#contacto" class="text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors">Contacto</a>
     </div>
-    <div class="lg:flex lg:flex-1 lg:justify-end">
-      <div class="flex gap-2 justify-center">
-        <SocialIcon
-          name="github"
-          href={SITE_DATA.socials.github}
-          label="GitHub"
-        />
-        <SocialIcon
-          name="linkedin"
-          href={SITE_DATA.socials.linkedin}
-          label="LinkedIn"
-        />
-        <SocialIcon
-          name="email"
-          href={`mailto:${SITE_DATA.email}`}
-          label="Email"
-        />
-      </div>
-    </div>
+
+    <!-- Hamburger button: mobile/tablet -->
+    <button
+      id="menu-btn"
+      class="lg:hidden flex flex-col gap-1.5 cursor-pointer p-2 group"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-0.5 bg-gray-300 transition-all duration-300 group-[.open]:translate-y-2 group-[.open]:rotate-45"></span>
+      <span class="block w-6 h-0.5 bg-gray-300 transition-all duration-300 group-[.open]:opacity-0"></span>
+      <span class="block w-6 h-0.5 bg-gray-300 transition-all duration-300 group-[.open]:-translate-y-2 group-[.open]:-rotate-45"></span>
+    </button>
   </nav>
+
+  <!-- Dropdown menu: mobile/tablet -->
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden flex-col border-t border-purple-500/10 bg-[#0b0c10]/95 backdrop-blur-md"
+  >
+    <a href="#proyectos" class="mobile-link px-6 py-4 text-sm font-medium text-gray-300 hover:text-purple-400 hover:bg-purple-500/5 transition-colors border-b border-gray-800/50">Proyectos</a>
+    <a href="#certificaciones" class="mobile-link px-6 py-4 text-sm font-medium text-gray-300 hover:text-purple-400 hover:bg-purple-500/5 transition-colors border-b border-gray-800/50">Certificaciones</a>
+    <a href="#contacto" class="mobile-link px-6 py-4 text-sm font-medium text-gray-300 hover:text-purple-400 hover:bg-purple-500/5 transition-colors">Contacto</a>
+  </div>
 </header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    menu?.classList.toggle('flex', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.classList.toggle('open', isOpen);
+  });
+
+  // Cierra el menú al pulsar un enlace
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      menu?.classList.remove('flex');
+      btn?.setAttribute('aria-expanded', 'false');
+      btn?.classList.remove('open');
+    });
+  });
+</script>

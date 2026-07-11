@@ -1,77 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import Proyecto from "./Proyecto.astro";
-import Boton from "./Boton.astro";
-import Habilidad from "./Habilidad.astro";
 import Footer from "./Footer.astro";
-
-const proyectos = [
-  {
-    nombre: "RitmosBot",
-    urlCodigo: "https://github.com/devparada/RitmosBot",
-    urlDemo: "https://ritmosweb.vercel.app",
-    urlImg: "/src/assets/ritmos-proyecto.png",
-    descripcion:
-      "Bot de música que permite a los usuarios disfrutar de su música en Discord con comandos simples.",
-    lenguajes: [
-      {
-        nombre: "NodeJS",
-      },
-      {
-        nombre: "JavaScript",
-      },
-      {
-        nombre: "TypeScript",
-      },
-      {
-        nombre: "Jest",
-      },
-      {
-        nombre: "Discord.js",
-      },
-    ],
-  },
-  {
-    nombre: "TresEnrayaJS",
-    urlCodigo: "https://github.com/devparada/TresEnRayaJS",
-    urlDemo: "https://tresenraya.devparada.dev",
-    urlImg: "/src/assets/tresenrayajs-proyecto.png",
-    descripcion:
-      "Versión del tres en raya en la que puedes jugar contra la CPU o contra otro jugador en la misma pantalla.",
-    lenguajes: [
-      {
-        nombre: "HTML5",
-      },
-      {
-        nombre: "CSS3",
-      },
-      {
-        nombre: "JavaScript",
-      },
-    ],
-  },
-  {
-    nombre: "TaskVelocity",
-    urlCodigo: "https://github.com/devparada/taskvelocity",
-    urlImg: "/src/assets/taskvelocity-proyecto.png",
-    descripcion:
-      "Proyecto de fin de ciclo de desarrollo de aplicaciones web, que permite a los usuarios gestionar sus tareas de manera eficiente y visual.",
-    lenguajes: [
-      {
-        nombre: "PHP",
-      },
-      {
-        nombre: "MySQL",
-      },
-      {
-        nombre: "Bootstrap",
-      },
-    ],
-  },
-];
+import Certificaciones from "./Certificaciones.astro";
+import SocialIcon from "./SocialIcon.astro";
+import SeccionHeader from "./SeccionHeader.astro";
+import {
+  PROYECTOS,
+  REDES_SOCIALES,
+  STACK_TECNOLOGICO,
+} from "../constants/contants";
 ---
 
-<main class="text-center w-full">
+<main class="w-full relative mt-20">
   <div
     class="pointer-events-none absolute inset-0 opacity-[0.03]"
     style="background-image:linear-gradient(hsl(0 0% 50%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 50%) 1px, transparent 1px);background-size:60px 60px"
@@ -79,164 +20,223 @@ const proyectos = [
   >
   </div>
   <div
-    class="pointer-events-none absolute left-1/2 top-1/2 h-[80vw] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15 blur-[80px] md:h-150 md:w-150 md:blur-[120px]"
+    class="pointer-events-none absolute left-1/2 top-1/4 h-[60vw] w-[60vw] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 blur-[100px]"
     style="background:var(--color-primary)"
     aria-hidden="true"
   >
   </div>
-  <div class="px-4 md:px-6 flex justify-center h-screen">
-    <div
-      class="flex flex-col justify-center space-y-4 max-w-3xl mx-auto text-center"
-    >
-      <Image
-        class="mx-auto"
-        src="/avatar.webp"
-        alt="Avatar"
-        height="120"
-        width="120"
-        loading="eager"
-      />
-      <div class="space-y-6">
+
+  <!-- Hero Section -->
+  <section
+    class="max-w-5xl mx-auto px-6 py-16 md:py-24 md:px-12 lg:px-16 min-h-[70vh] md:min-h-[80vh] flex flex-col justify-center relative reveal-on-scroll"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+      <div
+        class="flex flex-col items-center md:items-start space-y-0 md:col-span-1"
+      >
+        <div
+          class="w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-full border-4 border-transparent transition-all duration-500 hover:border-[#0b0c10] hover:ring-4 hover:ring-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] hover:scale-[1.02] mx-auto md:mx-0 cursor-default"
+        >
+          <Image
+            class="w-full h-full object-cover"
+            src="/avatar.webp"
+            alt="Avatar"
+            width="400"
+            height="400"
+            loading="eager"
+          />
+        </div>
+        <div class="flex justify-center gap-6 w-full md:w-64 mt-12">
+          <SocialIcon href={REDES_SOCIALES.github} label="GitHub">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-7 h-7"
+              ><path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+              ></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+            >
+          </SocialIcon>
+
+          <SocialIcon href={REDES_SOCIALES.linkedin} label="LinkedIn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-7 h-7"
+              ><path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path><rect width="4" height="12" x="2" y="9"></rect><circle
+                cx="4"
+                cy="4"
+                r="2"></circle></svg
+            >
+          </SocialIcon>
+
+          <SocialIcon
+            href={`mailto:${REDES_SOCIALES.email}`}
+            label="Email"
+            target="_self"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-7 h-7"
+              ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+                d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+            >
+          </SocialIcon>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 space-y-6 text-center md:text-left">
         <div>
           <h1
-            class="text-6xl sm:text-7xl lg:text-8xl font-bold text-foreground text-balance mb-2"
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-2"
           >
-            Raúl
+            Raúl Parada
           </h1>
-          <h1
-            class="text-6xl sm:text-7xl lg:text-8xl font-bold text-foreground text-balance"
+          <h2
+            class="text-xl sm:text-2xl lg:text-3xl font-medium text-purple-400"
           >
-            Parada
-          </h1>
+            Full Stack Developer
+          </h2>
         </div>
-        <p class="pt-2">FRONTEND DEV</p>
-        <h2
-          class="text-gray-400 md:text-xl text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto text-pretty pt-2"
+
+        <div
+          class="space-y-4 text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0"
         >
-          Desarrollador web junior con ganas de crear sitios web y experiencias
-          digitales modernas que conectan con los usuarios.
-        </h2>
-      </div>
-      <div class="flex justify-center mt-10">
-        <Boton url="#proyectos">
-          <span>Ver mis proyectos</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-arrow-down h-4 w-4 animate-bounce group-hover:text-violet-300"
-            aria-hidden="true"
-          >
-            <path d="M12 5v14"></path>
-            <path d="m19 12-7 7-7-7"></path>
-          </svg>
-        </Boton>
-      </div>
-    </div>
-  </div>
-</main>
-<!-- Sección Sobre Mí -->
-<section id="sobre-mi" class="relative px-6 py-24 md:px-12 lg:px-16 lg:py-32">
-  <div class="mx-auto max-w-5xl">
-    <h2 class="titulo-apartados">Sobre Mí</h2>
-    <p
-      class="mt-4 max-w-3xl text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl transition-all duration-1000 translate-y-0 opacity-100"
-    >
-      Me apasiona construir cosas para <span class="text-purple-500"
-        >la web</span
-      >.
-    </p>
-    <div class="mt-12 grid gap-16 lg:grid-cols-5">
-      <div
-        class="flex flex-col gap-5 text-secondary-foreground leading-relaxed lg:col-span-3 transition-all duration-1000 delay-200 translate-y-0 opacity-100"
-      >
-        <p>
-          Soy un desarrollador web junior en la creación de aplicaciones web
-          modernas y responsivas. Mi enfoque se centra en propocionar soluciones
-          elegantes a problemas complejos, manteniendo un enfoque en la
-          usabilidad y accesibilidad como prioridades.
-        </p>
-        <p>
-          Tengo algunos proyectos interesantes que abarcan desde frontend usando
-          Bootstrap y Tailwind hasta backend usando PHP y Spring Boot y algunos
-          cuentan con Github Actions para verificar que los tests y las reglas
-          pasen correctamente.
-        </p>
-        <p>
-          Cuando no estoy programando, disfruto de videojuegos y Minecraft y
-          creo que es clave mantener un equilibrio entre la vida profesional y
-          personal para la creatividad y la productividad.
-        </p>
-      </div>
-      <div
-        class="lg:col-span-2 transition-all duration-1000 delay-400 translate-y-0 opacity-100"
-      >
-        <p class="mb-5">Tecnologías</p>
-        <div class="grid grid-cols-2 gap-2.5">
-          <Habilidad nombre="HTML/CSS" />
-          <Habilidad nombre="JavaScript" />
-          <Habilidad nombre="TypeScript" />
-          <Habilidad nombre="Astro" />
-          <Habilidad nombre="React" />
-          <Habilidad nombre="MySQL/MariaDB" />
-          <Habilidad nombre="Java" />
-          <Habilidad nombre="Github Actions" />
-          <Habilidad nombre="Jest" />
-          <Habilidad nombre="Tailwind/BootStrap" />
-          <Habilidad nombre="Penpot" />
-          <Habilidad nombre="Python" />
+          <p>
+            ¡Hola! Soy un desarrollador especializado en Aplicaciones Web, con
+            experiencia construyendo interfaces intuitivas y conectándolas con
+            sistemas eficientes usando <strong class="text-white"
+              >React, TypeScript</strong
+            > y <strong class="text-white">Node.js</strong>.
+          </p>
+          <p>
+            Me considero una persona curiosa a la que le gusta entender cómo
+            funcionan las cosas por dentro, algo que refuerzo aportando a
+            repositorios públicos y manteniendo altos estándares de calidad y
+            buenas prácticas.
+          </p>
+          <p class="text-base text-gray-400">
+            En mi tiempo libre disfruto de los videojuegos, lo que me ayuda a
+            mantener el equilibrio y la creatividad. Disfruto del trabajo en
+            equipo y de crear soluciones que aporten un <strong
+              class="text-purple-300">valor real</strong
+            >. Mi objetivo es seguir asumiendo retos y dar lo mejor de mí en
+            cada proyecto.
+          </p>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- Sección Proyectos -->
-<section id="proyectos" class="max-w-5xl space-y-4 text-left mt-10 m-auto">
-  <div class="mx-auto max-w-5xl">
-    <h2 class="titulo-apartados text-left">Proyectos</h2>
-    <h3 class="font-bold text-6xl mb-4">Lo que he construido</h3>
-    <p class="mt-1 text-muted text-left">
-      Algunos proyectos personales en los que he trabajado.
-    </p>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto mt-10">
-    {
-      proyectos.map((proyecto, index) => {
-        // Definimos si este proyecto debe ser el "Destacado" (ancho completo)
-        // Por ejemplo: el primero (index 0) o cada tres (index % 3 === 0)
-        const isFeatured = index % 3 === 0;
+  </section>
 
-        return (
-          <div class={isFeatured ? "md:col-span-2" : "md:col-span-1"}>
-            <Proyecto
-              isFeatured={isFeatured}
-              urlCodigo={proyecto.urlCodigo}
-              urlDemo={proyecto.urlDemo}
-              urlImg={proyecto.urlImg}
-              nombre={proyecto.nombre}
-              descripcion={proyecto.descripcion}
-              lenguajes={proyecto.lenguajes}
-            />
-          </div>
-        );
-      })
-    }
-  </div>
-</section>
-<!-- Sección Mis Habilidades -->
-<section class="max-w-4xl mx-auto mt-10 px-4">
-  <div></div>
-</section>
-<Footer />
+  <!-- Sección Tecnologías -->
+  <section
+    class="max-w-5xl mx-auto px-6 py-24 md:px-12 lg:px-16 relative z-10 reveal-on-scroll"
+  >
+    <SeccionHeader
+      label="Mi Stack Tecnológico"
+      titulo="Herramientas que utilizo"
+    />
 
-<style>
-  .titulo-apartados {
-    color: var(--color-primary);
-  }
-</style>
+    <div
+      class="w-full bg-[#0b0c10] border border-gray-800 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(168,85,247,0.15)] font-mono text-sm"
+    >
+      <!-- Terminal Header -->
+      <div
+        class="bg-[#111216] border-b border-gray-800 px-4 py-3 flex items-center gap-2"
+      >
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+        </div>
+        <div class="mx-auto text-gray-500 text-xs">
+          raul@devparada: ~/skills
+        </div>
+      </div>
+
+      <!-- Terminal Body -->
+      <div class="p-6 text-gray-300 leading-relaxed overflow-x-auto">
+        <div>
+          {
+            Object.entries(STACK_TECNOLOGICO).map(([categoria, items]) => (
+              <div class="pl-6 mt-2 first:mt-0">
+                <span class="text-purple-400">"{categoria}"</span>
+                <span class="text-gray-500">:</span>
+                <span class="text-gray-500">[</span>
+                {items.map((item, i) => (
+                  <>
+                    <span class="text-green-300">"{item}"</span>
+                    {i < items.length - 1 && (
+                      <span class="text-gray-500">, </span>
+                    )}
+                  </>
+                ))}
+                <span class="text-gray-500">]</span>
+                <span class="text-gray-500">
+                  {categoria !== Object.keys(STACK_TECNOLOGICO).at(-1)
+                    ? ","
+                    : ""}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Proyectos -->
+  <section
+    id="proyectos"
+    class="max-w-5xl mx-auto px-6 py-24 md:px-12 lg:px-16 reveal-on-scroll"
+  >
+    <SeccionHeader
+      label="Proyectos"
+      titulo="Lo que he construido"
+      descripcion="Una selección de mis proyectos personales más destacados."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        PROYECTOS.map((proyecto) => (
+          <Proyecto
+            urlCodigo={proyecto.urlCodigo}
+            urlDemo={proyecto.urlDemo}
+            urlImg={proyecto.urlImg}
+            nombre={proyecto.nombre}
+            descripcion={proyecto.descripcion}
+            lenguajes={proyecto.lenguajes}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Sección Certificaciones -->
+  <Certificaciones />
+  <Footer />
+</main>

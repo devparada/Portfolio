@@ -1,0 +1,25 @@
+---
+import { CERTIFICACIONES } from "../constants/contants";
+import Certificacion from "./Certificacion.astro";
+import SeccionHeader from "./SeccionHeader.astro";
+---
+
+<section
+  id="certificaciones"
+  class="max-w-5xl space-y-4 text-left mt-10 m-auto px-6 py-24 md:px-12 lg:px-16 reveal-on-scroll"
+>
+  <SeccionHeader label="Credenciales" titulo="Certificaciones" />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    {
+      CERTIFICACIONES.map((cert) => (
+        <Certificacion
+          nombre={cert.nombre}
+          empresa={cert.empresa}
+          fecha={cert.fecha}
+          url={cert.url}
+        />
+      ))
+    }
+  </div>
+</section>

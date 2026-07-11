@@ -34,8 +34,39 @@ import "../styles/global.css";
       content="Explora los proyectos y habilidades de Raúl Parada"
     />
   </head>
-  <body>
+  <body class="relative bg-[#050505] text-white selection:bg-purple-500/30">
+    <div class="pointer-events-none fixed inset-0 z-30 transition duration-300" id="mouse-spotlight"></div>
     <slot />
+
+    <script>
+      // Spotlight
+      const spotlight = document.getElementById('mouse-spotlight');
+      window.addEventListener('mousemove', (e) => {
+        if (spotlight) {
+          spotlight.style.background = `radial-gradient(600px circle at ${e.clientX}px ${e.clientY}px, rgba(168, 85, 247, 0.05), transparent 80%)`;
+        }
+      });
+
+      // Scroll Reveal
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+        observer.observe(section);
+      });
+    </script>
   </body>
 </html>
 
