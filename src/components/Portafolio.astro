@@ -180,7 +180,8 @@ import {
 
       <!-- Terminal Body -->
       <div class="p-6 text-gray-300 leading-relaxed overflow-x-auto">
-        <div>
+        <div class="font-mono">
+          <div class="text-gray-500">{"{"}</div>
           {
             Object.entries(STACK_TECNOLOGICO).map(([categoria, items]) => (
               <div class="pl-6 mt-2 first:mt-0">
@@ -204,6 +205,7 @@ import {
               </div>
             ))
           }
+          <div class="text-gray-500">{"}"}</div>
         </div>
       </div>
     </div>
