@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import { imagenes } from "../lib/imagenes.ts";
+
 interface Props {
   id: string;
   url: string;
@@ -6,6 +9,9 @@ interface Props {
 }
 
 const { id, url, nombre } = Astro.props;
+const imageResolver = imagenes[url];
+const imageModule = await imageResolver();
+const imageMetadata = imageModule.default;
 ---
 
 <dialog
@@ -48,8 +54,8 @@ const { id, url, nombre } = Astro.props;
     <div
       class="grow bg-white/5 p-4 overflow-hidden flex items-center justify-center"
     >
-      <img
-        src={url}
+      <Image
+        src={imageMetadata}
         alt={`Certificado: ${nombre}`}
         class="max-w-full max-h-full object-contain rounded-lg border border-purple-500/20"
       />
@@ -66,7 +72,7 @@ const { id, url, nombre } = Astro.props;
         Cerrar
       </button>
       <a
-        href={url}
+        href={imageMetadata.src}
         target="_blank"
         rel="noopener noreferrer"
         download
