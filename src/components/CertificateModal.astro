@@ -1,0 +1,137 @@
+---
+interface Props {
+  id: string;
+  url: string;
+  nombre: string;
+}
+
+const { id, url, nombre } = Astro.props;
+---
+
+<dialog
+  id={`modal-${id}`}
+  class="bg-transparent backdrop:bg-black/80 backdrop:backdrop-blur-sm p-0 rounded-2xl w-full max-w-4xl m-auto shadow-2xl border border-purple-500/30"
+>
+  <div
+    class="bg-[#0b0c10] text-white overflow-hidden rounded-2xl flex flex-col h-[80vh]"
+  >
+    <!-- Header Modal -->
+    <div
+      class="flex justify-between items-center p-4 border-b border-purple-500/20 bg-[#14151a]"
+    >
+      <h3 class="font-semibold text-lg truncate pr-4 text-purple-300">
+        {nombre}
+      </h3>
+      <button
+        id={`close-${id}`}
+        class="text-gray-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 p-2 rounded-lg"
+        aria-label="Cerrar modal"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Contenido Modal (Imagen) -->
+    <div
+      class="grow bg-white/5 p-4 overflow-hidden flex items-center justify-center"
+    >
+      <img
+        src={url}
+        alt={`Certificado: ${nombre}`}
+        class="max-w-full max-h-full object-contain rounded-lg border border-purple-500/20"
+      />
+    </div>
+
+    <!-- Footer Modal -->
+    <div
+      class="flex justify-end items-center p-4 border-t border-purple-500/20 bg-[#14151a] gap-3"
+    >
+      <button
+        id={`cancel-${id}`}
+        class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors bg-transparent border border-gray-600 hover:border-gray-400 rounded-lg"
+      >
+        Cerrar
+      </button>
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        download
+        class="px-4 py-2 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 transition-colors rounded-lg shadow-[0_0_15px_rgba(168,85,247,0.3)] flex items-center gap-2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" x2="12" y1="15" y2="3"></line>
+        </svg>
+        Descargar
+      </a>
+    </div>
+  </div>
+</dialog>
+
+<script define:vars={{ id }}>
+  const modal = document.getElementById(`modal-${id}`);
+  const openBtn = document.getElementById(`open-${id}`);
+  const closeBtn = document.getElementById(`close-${id}`);
+  const cancelBtn = document.getElementById(`cancel-${id}`);
+
+  // Abrir modal
+  if (openBtn && modal) {
+    openBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.showModal();
+      document.body.style.overflow = "hidden"; // Prevenir scroll de fondo
+    });
+  }
+
+  // Función para cerrar
+  const closeModal = () => {
+    if (modal) {
+      modal.close();
+      document.body.style.overflow = ""; // Restaurar scroll
+    }
+  };
+
+  // Eventos de cierre
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  if (cancelBtn) cancelBtn.addEventListener("click", closeModal);
+
+  // Cerrar al hacer click fuera
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      const dialogDimensions = modal.getBoundingClientRect();
+      if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+      ) {
+        closeModal();
+      }
+    });
+  }
+</script>

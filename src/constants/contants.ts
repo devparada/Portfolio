@@ -42,16 +42,15 @@ export const PROYECTOS = [
     ],
   },
   {
-    nombre: "Proyecto Pendiente",
-    urlCodigo: "https://github.com/devparada",
-    urlDemo: "https://devparada.dev",
-    urlImg: "/src/assets/placeholder.png",
+    nombre: "ArgosBot",
+    urlCodigo: "https://github.com/devparada/ArgosBot",
+    urlImg: "/src/assets/argosbot-proyecto.png",
     descripcion:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vivamus elementum semper nisi.",
+      "Bot que avsia cuando se va el wifi de la casa mediante la API de Telegram.",
     lenguajes: [
-      { nombre: "React" },
-      { nombre: "Three JS" },
-      { nombre: "Tailwind CSS" },
+      { nombre: "Python" },
+      { nombre: "Scripts" },
+      { nombre: "Telegram" },
     ],
   },
 ];
@@ -61,13 +60,13 @@ export const CERTIFICACIONES = [
     nombre: "Drupal 11 Backend",
     empresa: "Forcontu",
     fecha: "Abril 2026",
-    url: "https://devparada.dev",
+    url: "/src/assets/certificados/drupal-11-backend.png",
   },
   {
     nombre: "FCOI12 - Análisis de Información Digital",
     empresa: "Junta de Galicia",
     fecha: "Enero 2026",
-    url: "https://devparada.dev",
+    url: "/src/assets/certificados/fcoi12.png",
   },
 ];
 

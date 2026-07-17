@@ -1,4 +1,6 @@
 ---
+import CertificateModal from "./CertificateModal.astro";
+
 interface Props {
   nombre: string;
   empresa: string;
@@ -7,6 +9,10 @@ interface Props {
 }
 
 const { nombre, empresa, fecha, url } = Astro.props;
+const modalId = nombre
+  .replace(/\s+/g, "-")
+  .toLowerCase()
+  .replace(/[^a-z0-9-]/g, "");
 ---
 
 <div
@@ -43,11 +49,9 @@ const { nombre, empresa, fecha, url } = Astro.props;
     </div>
   </div>
   <div class="mt-auto pt-4 flex">
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="text-purple-400 text-sm font-medium hover:text-purple-300 flex items-center gap-1 transition-colors"
+    <button
+      id={`open-${modalId}`}
+      class="text-purple-400 text-sm font-medium hover:text-purple-300 flex items-center gap-1 transition-colors bg-transparent border-none cursor-pointer"
     >
       Ver credencial
       <svg
@@ -64,6 +68,8 @@ const { nombre, empresa, fecha, url } = Astro.props;
         <path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
           d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
       </svg>
-    </a>
+    </button>
   </div>
 </div>
+
+<CertificateModal id={modalId} url={url} nombre={nombre} />
