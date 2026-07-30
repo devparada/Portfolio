@@ -5,16 +5,16 @@ updates:
     schedule:
       interval: "weekly"
     commit-message:
-      prefix: "yarn"
-      include: "scope" # Dependabot intentará usar (deps) o (deps-dev)
+      prefix: "pnpm"
+      include: "scope" # Dependabot usa (deps) o (deps-dev)
     assignees:
       - "devparada"
 
     open-pull-requests-limit: 4
-    versioning-strategy: "increase"  # Actualiza versiones a minor o patch en el package.json
+    versioning-strategy: "increase"  # Actualiza a versiones minor o patch en el package.json
     
-    # Grupo 1: Solo dependencias de producción (dependencies)
     groups:
+      # Grupo 1: Solo dependencias de producción (dependencies)
       production-dependencies:
         dependency-type: "production"
 
