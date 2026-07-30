@@ -1,9 +1,12 @@
 allowBuilds:
   esbuild: false
   sharp: false
-overrides:
-  astro: 7.1.3
-  svgo: 4.0.2
+# overrides: # Comentado para el futuro
+# Silencia las advertencias de peer dependencies para estas librerías sin alterar sus versiones
+peerDependencyRules:
+  allowAny:
+    - "@emnapi/core"
+    - "@emnapi/runtime"
 minimumReleaseAge: 1440 # 24 horas
 packages:
   - .
