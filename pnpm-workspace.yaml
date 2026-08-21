@@ -1,8 +1,7 @@
 allowBuilds:
   esbuild: false
   sharp: false
-overrides: # Descomentado para el futuro
-  nanoid: 3.3.18
+#overrides: # Comentado para el futuro
 # Silencia las advertencias de peer dependencies para estas librerías sin alterar sus versiones
 peerDependencyRules:
   allowAny:
