@@ -1,0 +1,41 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":pinGitHubActionDigests"
+  ],
+  "dependencyDashboard": false,
+  "timezone": "Europe/Madrid",
+  "schedule": [
+    "before 10:00am on Monday"
+  ],
+  "minimumReleaseAge": "1 day",
+  "assignees": [
+    "devparada"
+  ],
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "matchPackageNames": ["pnpm"],
+      "enabled": false
+    },
+    {
+      "matchPackagePatterns": ["*"],
+      "matchDepTypes": ["dependencies"],
+      "groupName": "production-dependencies",
+      "branchName": "dependabot/pnpm/production-dependencies-{{rand5}}"
+    },
+    {
+      "matchPackagePatterns": ["*"],
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "development-dependencies",
+      "branchName": "dependabot/pnpm/development-dependencies-{{rand5}}"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions",
+      "branchName": "dependabot/github-actions/actions-{{rand5}}",
+      "pinDigests": true
+    }
+  ]
+}
