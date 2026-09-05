@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    ":pinGitHubActionDigests"
+    "helpers:pinGitHubActionDigests"
   ],
   "dependencyDashboard": false,
   "timezone": "Europe/Madrid",
@@ -20,22 +20,18 @@
       "enabled": false
     },
     {
-      "matchPackagePatterns": ["*"],
+      "matchPackageNames": ["*"],
       "matchDepTypes": ["dependencies"],
-      "groupName": "production-dependencies",
-      "branchName": "dependabot/pnpm/production-dependencies-{{rand5}}"
+      "groupName": "production-dependencies"
     },
     {
-      "matchPackagePatterns": ["*"],
+      "matchPackageNames": ["*"],
       "matchDepTypes": ["devDependencies"],
-      "groupName": "development-dependencies",
-      "branchName": "dependabot/pnpm/development-dependencies-{{rand5}}"
+      "groupName": "development-dependencies"
     },
     {
       "matchManagers": ["github-actions"],
-      "groupName": "github-actions",
-      "branchName": "dependabot/github-actions/actions-{{rand5}}",
-      "pinDigests": true
+      "groupName": "github-actions"
     }
   ]
 }
