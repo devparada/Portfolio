@@ -2,11 +2,6 @@ allowBuilds:
   esbuild: false
   sharp: false
 #overrides: # Comentado para el futuro
-# Silencia las advertencias de peer dependencies para estas librerías sin alterar sus versiones
-peerDependencyRules:
-  allowAny:
-    - "@emnapi/core"
-    - "@emnapi/runtime"
 minimumReleaseAge: 1440 # 24 horas
 packages:
   - .
