@@ -10,28 +10,59 @@
     "before 10:00am on Monday"
   ],
   "minimumReleaseAge": "1 day",
+  "prConcurrentLimit": 2,
   "assignees": [
     "devparada"
   ],
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "matchPackageNames": ["pnpm"],
+      "matchDepTypes": [
+        "packageManager"
+      ],
       "enabled": false
     },
     {
-      "matchPackageNames": ["*"],
-      "matchDepTypes": ["dependencies"],
-      "groupName": "production-dependencies"
+      "matchDepTypes": [
+        "engines"
+      ],
+      "enabled": false
     },
     {
-      "matchPackageNames": ["*"],
-      "matchDepTypes": ["devDependencies"],
-      "groupName": "development-dependencies"
+      "matchDepTypes": [
+        "dependencies",
+        "optionalDependencies"
+      ],
+      "groupName": "prod",
+      "addLabels": [
+        "dependencies"
+      ]
     },
     {
-      "matchManagers": ["github-actions"],
-      "groupName": "github-actions"
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "groupName": "dev",
+      "addLabels": [
+        "dependencies"
+      ]
+    },
+    {
+      "matchDepTypes": [
+        "peerDependencies"
+      ],
+      "addLabels": [
+        "dependencies"
+      ]
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "actions",
+      "addLabels": [
+        "github-actions"
+      ]
     }
   ]
 }
