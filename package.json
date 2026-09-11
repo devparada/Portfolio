@@ -10,9 +10,9 @@
     "preview": "astro build && astro preview"
   },
   "dependencies": {
-    "@lucide/astro": "1.41.0",
+    "@lucide/astro": "1.44.0",
     "@tailwindcss/vite": "4.3.3",
-    "astro": "7.3.1",
+    "astro": "7.3.2",
     "sharp": "0.35.4",
     "tailwindcss": "4.3.3",
     "vite": "8.2.2"
@@ -21,7 +21,7 @@
     "@astrojs/sitemap": "3.7.4",
     "typescript": "7.0.2"
   },
-  "packageManager": "pnpm@11.25.0",
+  "packageManager": "pnpm@12.3.4",
   "engines": {
     "node": ">=24"
   }
