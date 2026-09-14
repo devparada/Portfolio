@@ -1,16 +1,17 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import UnoCSS from "@unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://devparada.dev',
   prefetch: true,
-  integrations: [sitemap()],
+  integrations: [
+    sitemap(),
+    UnoCSS(),
+  ],
   vite: {
-    // @ts-ignore - Conflicto de tipos en Vite 7
-    plugins: [tailwindcss()],
     build: {
       cssMinify: 'lightningcss'
     },

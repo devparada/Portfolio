@@ -11,17 +11,18 @@
   },
   "dependencies": {
     "@lucide/astro": "1.45.0",
-    "@tailwindcss/vite": "4.3.3",
     "astro": "7.3.2",
-    "sharp": "0.35.4",
-    "tailwindcss": "4.3.3",
-    "vite": "8.3.0"
+    "sharp": "0.35.4"
   },
   "devDependencies": {
     "@astrojs/sitemap": "3.7.4",
-    "typescript": "7.0.2"
+    "@unocss/astro": "66.10.2",
+    "@unocss/preset-wind4": "66.10.2",
+    "typescript": "7.0.2",
+    "unocss": "66.10.2",
+    "vite": "8.3.0"
   },
-  "packageManager": "pnpm@12.3.4",
+  "packageManager": "pnpm@12.4.1",
   "engines": {
     "node": ">=24"
   }
