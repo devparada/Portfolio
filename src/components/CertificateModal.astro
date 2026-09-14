@@ -99,7 +99,7 @@ const imageMetadata = imageModule.default;
   </div>
 </dialog>
 
-<script define:vars={{ id }}>
+<script is:inline define:vars={{ id }}>
   const modal = document.getElementById(`modal-${id}`);
   const openBtn = document.getElementById(`open-${id}`);
   const closeBtn = document.getElementById(`close-${id}`);
