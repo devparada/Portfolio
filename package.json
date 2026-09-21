@@ -17,10 +17,10 @@
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "@astrojs/sitemap": "3.7.4",
-    "@unocss/astro": "66.10.2",
-    "@unocss/preset-wind4": "66.10.2",
+    "@unocss/astro": "66.10.5",
+    "@unocss/preset-wind4": "66.10.5",
     "typescript": "6.0.3",
-    "unocss": "66.10.2",
+    "unocss": "66.10.5",
     "vite": "8.3.0"
   },
   "packageManager": "pnpm@12.4.1",
