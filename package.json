@@ -23,7 +23,7 @@
     "unocss": "66.10.5",
     "vite": "8.3.0"
   },
-  "packageManager": "pnpm@12.4.1",
+  "packageManager": "pnpm@12.5.1",
   "engines": {
     "node": ">=24"
   }
