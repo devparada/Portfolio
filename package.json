@@ -10,8 +10,8 @@
     "preview": "astro build && astro preview"
   },
   "dependencies": {
-    "@lucide/astro": "1.45.0",
-    "astro": "7.3.2",
+    "@lucide/astro": "1.47.0",
+    "astro": "7.3.3",
     "sharp": "0.35.4"
   },
   "devDependencies": {
