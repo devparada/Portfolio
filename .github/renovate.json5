@@ -7,13 +7,19 @@
   "dependencyDashboard": false,
   "timezone": "Europe/Madrid",
   "schedule": [
-    "before 10:00am on Monday"
+    "* 10 * * 1"
   ],
   "minimumReleaseAge": "1 day",
   "prConcurrentLimit": 2,
   "assignees": [
     "devparada"
   ],
+  "reviewers": [
+    "devparada"
+  ],
+  "branchPrefix": "deps/",
+  "branchPrefixOld": "renovate/",
+  "commitMessagePrefix": "deps:",
   "rangeStrategy": "bump",
   "packageRules": [
     {
@@ -34,6 +40,7 @@
         "optionalDependencies"
       ],
       "groupName": "prod",
+      "groupSlug": "prod",
       "addLabels": [
         "dependencies"
       ]
@@ -43,6 +50,7 @@
         "devDependencies"
       ],
       "groupName": "dev",
+      "groupSlug": "dev",
       "addLabels": [
         "dependencies"
       ]
@@ -60,6 +68,7 @@
         "github-actions"
       ],
       "groupName": "actions",
+      "groupSlug": "actions",
       "addLabels": [
         "github-actions"
       ]
