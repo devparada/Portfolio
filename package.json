@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,6 +8,7 @@
     "build": "astro build",
     "check": "astro check",
     "dev": "astro dev",
+    "og": "node scripts/crear-og.ts",
     "preview": "astro build && astro preview"
   },
   "dependencies": {

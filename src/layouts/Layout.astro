@@ -16,7 +16,7 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio personal de Raúl Parada de la Fuente - devparada"
+      content="Full Stack Developer especializado en React, TypeScript y Node.js. Explora los proyectos y certificaciones de Raúl Parada de la Fuente."
     />
     <link rel="canonical" href="https://devparada.dev/" />
     <link rel="icon" type="image/webp" href="/avatar.webp" />
@@ -24,13 +24,15 @@ import "../styles/global.css";
     <title>Raúl Parada de la Fuente | Portfolio</title>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Raúl Parada de la Fuente - FullStack Developer" />
+    <meta property="og:title" content="Raúl Parada de la Fuente - Full Stack Developer" />
     <meta
       property="og:description"
       content="Explora los proyectos y habilidades de Raúl Parada de la Fuente"
     />
     <meta property="og:url" content="https://devparada.dev/" />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://devparada.dev/og.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
@@ -49,6 +51,22 @@ import "../styles/global.css";
     />
     <meta name="twitter:image" content="https://devparada.dev/og.png" />
 
+    <!-- Structured data -->
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Raúl Parada de la Fuente",
+        url: "https://devparada.dev/",
+        jobTitle: "Full Stack Developer",
+        sameAs: [
+          "https://github.com/devparada/",
+          "https://www.linkedin.com/in/raul-parada-de-la-fuente/",
+        ],
+      })}
+    />
   </head>
   <body class="relative">
     <!-- Skip link: accesibilidad de teclado -->
