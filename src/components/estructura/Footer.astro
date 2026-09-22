@@ -1,0 +1,134 @@
+﻿---
+import { REDES_SOCIALES } from "../../constants/constants";
+import Mail from "@lucide/astro/icons/mail";
+import LinkedinIcon from "../ui/icons/LinkedinIcon.astro";
+import DiscordIcon from "../ui/icons/DiscordIcon.astro";
+---
+
+<footer
+  id="contacto"
+  class="relative px-6 py-24 md:py-32 md:px-12 lg:px-16 overflow-hidden bg-[color:var(--color-paper)] border-t border-[color:var(--color-rule-soft)]"
+>
+  <div
+    class="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10"
+  >
+    <h2
+      class="text-4xl md:text-6xl font-bold tracking-tight text-balance max-w-3xl"
+    >
+      ¿Trabajamos juntos?
+    </h2>
+    <p
+      class="text-[color:var(--color-ink-muted)] text-lg md:text-xl max-w-2xl text-pretty leading-relaxed mt-6"
+    >
+      Si tienes una idea en mente, un proyecto en curso o simplemente quieres
+      saludar, mi bandeja de entrada siempre está abierta. Construyamos algo
+      increíble juntos.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 mt-12">
+      <a
+        href={`mailto:${REDES_SOCIALES.email}`}
+        class="btn-solid text-base px-8 py-4"
+        data-cta-email
+      >
+        <Mail size={18} aria-hidden="true" />
+        Enviar email
+      </a>
+
+      <a
+        href={REDES_SOCIALES.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-outline text-base px-8 py-4"
+      >
+        <LinkedinIcon size={18} />
+        LinkedIn
+      </a>
+
+      <!-- Discord: lucide no incluye iconos de marca -->
+      <a
+        href={REDES_SOCIALES.discord}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-outline text-base px-8 py-4"
+      >
+        <DiscordIcon size={18} />
+        Discord
+      </a>
+    </div>
+
+    <p
+      class="mono text-xs sm:text-sm md:text-base text-[color:var(--color-ink-muted)] flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mt-16"
+    >
+      <span class="flex items-center gap-2">
+        <span class="status-dot" aria-hidden="true"></span>
+        Disponible para trabajar
+      </span>
+      <span class="text-[color:var(--color-ink-faint)]" aria-hidden="true">·</span>
+      <span>GPL-3.0</span>
+      <span class="text-[color:var(--color-ink-faint)]" aria-hidden="true">·</span>
+      <span
+        >hecho con&nbsp;<span class="heart" role="img" aria-label="cariño"
+          >♥</span
+        ></span
+      >
+    </p>
+  </div>
+</footer>
+
+<style>
+  .status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: oklch(72% 0.19 145);
+    box-shadow: 0 0 0 0 oklch(72% 0.19 145 / 0.5);
+    animation: status-pulse 2.4s var(--ease-out) infinite;
+  }
+
+  @keyframes status-pulse {
+    0% {
+      box-shadow: 0 0 0 0 oklch(72% 0.19 145 / 0.5);
+    }
+
+    70% {
+      box-shadow: 0 0 0 6px oklch(72% 0.19 145 / 0);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 oklch(72% 0.19 145 / 0);
+    }
+  }
+
+  .heart {
+    color: var(--color-accent);
+    display: inline-block;
+    animation: heart-beat 1.8s var(--ease-out) infinite;
+  }
+  @keyframes heart-beat {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    12% {
+      transform: scale(1.25);
+    }
+
+    24% {
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .status-dot,
+    .heart {
+      animation: none;
+    }
+
+    .status-dot {
+      box-shadow: 0 0 0 2px oklch(72% 0.19 145 / 0.4);
+    }
+  }
+</style>
+

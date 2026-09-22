@@ -1,0 +1,36 @@
+---
+// Animación: data-typewriter-route — lógica en src/lib/animaciones.ts.
+interface Props {
+  ruta: string;
+  titulo: string;
+  descripcion?: string;
+}
+
+const { ruta, titulo, descripcion } = Astro.props;
+---
+
+<div class="mb-8 md:mb-10 text-left">
+  <p class="section-path" aria-hidden="true">
+    <span
+      ><span class="t-prompt">~/</span><span data-typewriter-route
+        data-route-text={ruta}>{ruta}</span
+      ></span
+    >
+  </p>
+  <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-3" data-reveal>
+    {titulo}
+  </h2>
+  {
+    descripcion && (
+      <p class="text-base text-muted-ink max-w-2xl" data-reveal>
+        {descripcion}
+      </p>
+    )
+  }
+</div>
+
+<style>
+  .text-muted-ink {
+    color: var(--color-ink-muted);
+  }
+</style>

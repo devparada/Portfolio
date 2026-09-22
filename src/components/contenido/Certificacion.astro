@@ -1,0 +1,121 @@
+---
+import CertificateModal from "../ui/CertificateModal.astro";
+
+interface Props {
+  nombre: string;
+  empresa: string;
+  fecha: string;
+  url: string;
+}
+
+const { nombre, empresa, fecha, url } = Astro.props;
+const modalId = nombre
+  .replace(/\s+/g, "-")
+  .toLowerCase()
+  .replace(/[^a-z0-9-]/g, "");
+---
+
+<div class="cert-row">
+  <div class="cert-row__main">
+    <h3 class="cert-row__name">{nombre}</h3>
+    <p class="cert-row__meta">
+      {empresa} <span class="cert-row__sep" aria-hidden="true">·</span>
+      {" "}<span class="cert-row__fecha">{fecha}</span>
+    </p>
+  </div>
+
+  <button
+    data-modal-open={modalId}
+    class="cert-row__open mono"
+    aria-label={`Ver credencial: ${nombre}`}
+  >
+    Ver credencial
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+    </svg>
+  </button>
+</div>
+
+<CertificateModal id={modalId} url={url} nombre={nombre} />
+
+<style>
+  .cert-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.125rem 1.25rem;
+    border-bottom: 1px solid oklch(20% 0.014 285);
+    min-width: 0;
+  }
+
+  .cert-row:last-child {
+    border-bottom: none;
+  }
+
+  .cert-row__main {
+    min-width: 0;
+  }
+
+  .cert-row__name {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: color var(--dur-fast) var(--ease-out);
+    min-width: 0;
+  }
+
+  .cert-row:hover .cert-row__name {
+    color: var(--color-accent-strong);
+  }
+
+  .cert-row__meta {
+    font-size: 0.8125rem;
+    color: var(--color-ink-faint);
+    margin-top: 0.25rem;
+  }
+
+  .cert-row__sep {
+    margin: 0 0.25rem;
+  }
+
+  .cert-row__open {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0;
+    cursor: pointer;
+    white-space: nowrap;
+    background-image: linear-gradient(var(--color-accent), var(--color-accent));
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size var(--dur-med) var(--ease-out);
+  }
+
+  .cert-row__open:hover {
+    background-size: 100% 1px;
+  }
+
+  .cert-row__open:active {
+    transform: translateY(1px);
+  }
+</style>

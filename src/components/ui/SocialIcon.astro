@@ -14,7 +14,7 @@ const { href, label, target = "_blank", rel = "noopener noreferrer" } = Astro.pr
   target={target}
   rel={target === "_blank" ? rel : undefined}
   aria-label={label}
-  class="text-gray-400 hover:text-purple-400 transition-all hover:scale-110"
+  class="inline-flex items-center justify-center w-8 h-8 -m-2 p-1 text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-accent)] transition-all hover:scale-110"
 >
   <slot />
 </a>

@@ -1,4 +1,11 @@
 ---
+import "@fontsource/space-grotesk/latin-400.css";
+import "@fontsource/space-grotesk/latin-500.css";
+import "@fontsource/space-grotesk/latin-600.css";
+import "@fontsource/space-grotesk/latin-700.css";
+import "@fontsource/jetbrains-mono/latin-400.css";
+import "@fontsource/jetbrains-mono/latin-500.css";
+import "@fontsource/jetbrains-mono/latin-600.css";
 import "../styles/global.css";
 ---
 
@@ -6,66 +13,61 @@ import "../styles/global.css";
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio personal de Raúl Parada - devparada"
+      content="Portfolio personal de Raúl Parada de la Fuente - devparada"
     />
     <link rel="canonical" href="https://devparada.dev/" />
     <link rel="icon" type="image/webp" href="/avatar.webp" />
     <link rel="preload" as="image" href="/avatar.webp" type="image/webp" />
-    <title>Raúl Parada | Portfolio</title>
+    <title>Raúl Parada de la Fuente | Portfolio</title>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Raúl Parada - FullStack Developer" />
+    <meta property="og:title" content="Raúl Parada de la Fuente - FullStack Developer" />
     <meta
       property="og:description"
-      content="Explora los proyectos y habilidades de Raúl Parada"
+      content="Explora los proyectos y habilidades de Raúl Parada de la Fuente"
     />
     <meta property="og:url" content="https://devparada.dev/" />
-    <meta property="og:site_name" content="Raúl Parada | Portfolio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Raúl Parada de la Fuente - Full Stack Developer"
+    />
+    <meta property="og:site_name" content="Raúl Parada de la Fuente | Portfolio" />
     <meta property="og:locale" content="es_ES" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Raúl Parada - Full Stack Developer" />
+    <meta name="twitter:title" content="Raúl Parada de la Fuente - Full Stack Developer" />
     <meta
       name="twitter:description"
-      content="Explora los proyectos y habilidades de Raúl Parada"
+      content="Explora los proyectos y habilidades de Raúl Parada de la Fuente"
     />
+    <meta name="twitter:image" content="https://devparada.dev/og.png" />
+
   </head>
-  <body class="relative bg-[#050505] text-white selection:bg-purple-500/30">
-    <div class="pointer-events-none fixed inset-0 z-30 transition duration-300" id="mouse-spotlight"></div>
+  <body class="relative">
+    <!-- Skip link: accesibilidad de teclado -->
+    <a
+      href="#inicio"
+      class="skip-link"
+    >
+      Saltar al contenido
+    </a>
+
+    <!-- XP bar: progreso de scroll -->
+    <div class="xp-bar" id="xp-bar" aria-hidden="true"></div>
+
     <slot />
 
     <script>
-      // Spotlight
-      const spotlight = document.getElementById('mouse-spotlight');
-      window.addEventListener('mousemove', (e) => {
-        if (spotlight) {
-          spotlight.style.background = `radial-gradient(600px circle at ${e.clientX}px ${e.clientY}px, rgba(168, 85, 247, 0.05), transparent 80%)`;
-        }
-      });
-
-      // Scroll Reveal
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // Only animate once
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.reveal-on-scroll').forEach(section => {
-        observer.observe(section);
-      });
+      // Toda la animación GSAP vive en src/lib/animaciones.ts (imports npm).
+      // Estructura centralizada: todos los data-* se animan aquí.
+      import "../lib/animaciones";
     </script>
   </body>
 </html>

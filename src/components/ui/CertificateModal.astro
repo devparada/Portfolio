@@ -1,0 +1,141 @@
+---
+import { Image } from "astro:assets";
+import { imagenes } from "../../lib/imagenes.ts";
+
+interface Props {
+  id: string;
+  url: string;
+  nombre: string;
+}
+
+const { id, url, nombre } = Astro.props;
+const imageResolver = imagenes[url];
+const imageModule = await imageResolver();
+const imageMetadata = imageModule.default;
+---
+
+<dialog
+  id={`modal-${id}`}
+  data-modal={id}
+  aria-labelledby={`modal-title-${id}`}
+  class="bg-transparent backdrop:bg-black/80 backdrop:backdrop-blur-sm p-0 rounded-lg w-full max-w-4xl m-auto shadow-2xl border border-[color:var(--color-rule)]"
+>
+  <div
+    class="bg-[color:var(--color-paper-2)] text-[color:var(--color-ink)] overflow-hidden rounded-lg flex flex-col h-[80vh]"
+  >
+    <!-- Header Modal -->
+    <div
+      class="flex justify-between items-center p-4 border-b border-[color:var(--color-rule-soft)] bg-[color:var(--color-paper-3)]"
+    >
+      <h3
+        id={`modal-title-${id}`}
+        class="font-semibold text-lg truncate pr-4 mono text-[color:var(--color-accent)]"
+      >
+        {nombre}
+      </h3>
+      <button
+        data-modal-close
+        class="text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] transition-colors bg-white/5 hover:bg-white/10 p-2 rounded-md"
+        aria-label="Cerrar modal"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Contenido Modal (Imagen) -->
+    <div
+      class="grow bg-white/5 p-4 overflow-hidden flex items-center justify-center"
+    >
+      <Image
+        src={imageMetadata}
+        alt={`Certificado: ${nombre}`}
+        class="max-w-full max-h-full object-contain rounded-md border border-[color:var(--color-rule-soft)]"
+      />
+    </div>
+
+    <!-- Footer Modal -->
+    <div
+      class="flex justify-end items-center p-4 border-t border-[color:var(--color-rule-soft)] bg-[color:var(--color-paper-3)] gap-3"
+    >
+      <button
+        data-modal-close
+        class="px-4 py-2 text-sm font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] transition-colors bg-transparent border border-[color:var(--color-rule)] hover:border-[color:var(--color-ink-faint)] rounded-md"
+      >
+        Cerrar
+      </button>
+      <a
+        href={imageMetadata.src}
+        target="_blank"
+        rel="noopener noreferrer"
+        download
+        class="px-4 py-2 text-sm font-semibold mono text-[color:var(--color-paper)] bg-[color:var(--color-accent)] hover:bg-[color:var(--color-accent-strong)] transition-colors rounded-md flex items-center gap-2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" x2="12" y1="15" y2="3"></line>
+        </svg>
+        Descargar
+      </a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  // Modal de credenciales: un solo módulo para todos los diálogos.
+  // data-modal="id" en el <dialog>, data-modal-open="id" en el disparador,
+  // data-modal-close en los botones de cierre. Escape lo cierra nativamente.
+  const abrir = (modal: HTMLDialogElement) => {
+    modal.showModal();
+    document.body.style.overflow = "hidden"; // Prevenir scroll de fondo
+  };
+
+  document.querySelectorAll<HTMLElement>("[data-modal-open]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const modal = document.querySelector<HTMLDialogElement>(
+        `[data-modal="${btn.dataset.modalOpen}"]`
+      );
+      if (modal) abrir(modal);
+    });
+  });
+
+  document.querySelectorAll<HTMLDialogElement>("[data-modal]").forEach((modal) => {
+    // Restaura el scroll en cualquier cierre (botones, clic fuera, Escape)
+    modal.addEventListener("close", () => {
+      document.body.style.overflow = "";
+    });
+
+    // Botones de cierre
+    modal.querySelectorAll("[data-modal-close]").forEach((btn) => {
+      btn.addEventListener("click", () => modal.close());
+    });
+
+    // Cerrar al hacer clic fuera de la tarjeta
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.close();
+    });
+  });
+</script>

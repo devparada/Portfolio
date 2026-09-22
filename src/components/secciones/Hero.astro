@@ -1,0 +1,120 @@
+---
+// Animations via [data-*] attributes — logic in src/lib/animaciones.ts.
+import { Image } from "astro:assets";
+---
+
+<section
+  class="relative max-w-5xl mx-auto px-6 pt-28 pb-16 md:pb-20 md:px-12 lg:px-16 md:pt-40"
+>
+  <div class="flex flex-col items-center md:flex-row md:items-start md:gap-14" data-hero-content>
+    <div class="hero-avatar shrink-0 mb-6 md:mb-0">
+      <div class="avatar-frame">
+        <Image
+          class="avatar-frame__img"
+          src="/avatar.webp"
+          alt="Avatar de Raúl Parada de la Fuente"
+          width="400"
+          height="400"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+
+    <div
+      class="space-y-5 md:space-y-6 min-w-0 flex-1 text-center md:text-left"
+    >
+      <p class="mono text-sm md:text-base mb-1 md:mb-2" aria-hidden="true">
+        <span class="t-prompt">$&nbsp;</span>
+        <span class="t-path" data-typewriter>whoami</span>
+      </p>
+
+      <h1
+        class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.02] text-balance"
+      >
+        Raúl Parada de la Fuente
+      </h1>
+      <p class="mono text-base md:text-xl">
+        <span class="t-prompt">&gt;</span>&nbsp;<span
+          class="text-muted-ink"
+          data-scramble
+          data-text="Full Stack Developer">Full Stack Developer</span
+        >
+      </p>
+
+      <div
+        class="space-y-4 text-base md:text-lg leading-relaxed text-pretty text-muted-ink max-w-2xl mx-auto md:mx-0"
+      >
+        <p>
+          Desarrollador web especializado en aplicaciones que unen interfaces
+          intuitivas con sistemas eficientes, usando{" "}
+          <strong class="text-ink">React, TypeScript</strong> y{" "}
+          <strong class="text-ink">Node.js</strong>.
+        </p>
+        <p class="text-sm md:text-base text-faint">
+          Cuando no estoy programando, los videojuegos recargan mi creatividad.
+          Me gusta el trabajo en equipo y las soluciones con{" "}
+          <strong class="text-accent">valor real</strong>; mi objetivo, seguir
+          asumiendo retos en cada proyecto.
+        </p>
+      </div>
+
+      <div
+        class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 pt-1 md:pt-2"
+      >
+        <a href="#proyectos" class="btn-solid text-sm md:text-base">
+          Ver proyectos
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="#contacto" class="btn-outline text-sm md:text-base"
+          >Contacto</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-faint {
+    color: var(--color-ink-faint);
+  }
+
+  .text-muted-ink {
+    color: var(--color-ink-muted);
+  }
+
+  .text-ink {
+    color: var(--color-ink);
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .hero-avatar {
+    /* móvil: 6rem */
+    width: 6rem;
+  }
+
+  .avatar-frame {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 9999px;
+  }
+
+  .avatar-frame__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+    display: block;
+    border-radius: 9999px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-avatar {
+      /* desktop: 12rem */
+      width: 12rem;
+    }
+  }
+</style>

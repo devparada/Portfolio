@@ -1,0 +1,269 @@
+---
+// Iconos de marca (GitHub, LinkedIn) inline: lucide 1.x no incluye marcas.
+import SocialIcon from "../ui/SocialIcon.astro";
+import GithubIcon from "../ui/icons/GithubIcon.astro";
+import LinkedinIcon from "../ui/icons/LinkedinIcon.astro";
+import { REDES_SOCIALES } from "../../constants/constants";
+import Mail from "@lucide/astro/icons/mail";
+---
+
+<header
+  class="fixed top-0 w-full z-50 bg-[color:var(--color-paper)]/85 backdrop-blur-md border-b border-[color:var(--color-rule-soft)]"
+>
+  <nav
+    class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
+    aria-label="Global"
+  >
+    <div class="flex lg:flex-1">
+      <a
+        href="#inicio"
+        class="nav-wordmark mono text-lg font-semibold"
+        data-nav-wordmark
+      >
+        <span class="t-prompt" aria-hidden="true">~/</span>devparada
+      </a>
+    </div>
+
+    <!-- Nav links + social: desktop -->
+    <div class="hidden lg:flex lg:items-center lg:gap-x-7">
+      <a href="#proyectos" class="nav-link">
+        <span class="nav-link__dot" aria-hidden="true"></span>Proyectos</a
+      >
+      <a href="#certificaciones" class="nav-link">
+        <span class="nav-link__dot" aria-hidden="true"></span>Certificaciones</a
+      >
+      <a href="#contacto" class="nav-link">
+        <span class="nav-link__dot" aria-hidden="true"></span>Contacto</a
+      >
+
+      <span class="nav-sep" aria-hidden="true"></span>
+
+      <div class="flex items-center gap-4">
+        <SocialIcon href={REDES_SOCIALES.github} label="GitHub">
+          <GithubIcon size={19} />
+        </SocialIcon>
+
+        <SocialIcon href={REDES_SOCIALES.linkedin} label="LinkedIn">
+          <LinkedinIcon size={19} />
+        </SocialIcon>
+
+        <SocialIcon
+          href={`mailto:${REDES_SOCIALES.email}`}
+          label="Email"
+          target="_self"
+        >
+          <Mail size={19} aria-hidden="true" />
+        </SocialIcon>
+      </div>
+    </div>
+
+    <!-- Hamburger button: mobile/tablet -->
+    <button
+      id="menu-btn"
+      class="lg:hidden flex flex-col gap-1.5 cursor-pointer p-2 group"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </button>
+  </nav>
+
+  <!-- Dropdown menu: mobile/tablet -->
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden flex-col border-t border-[color:var(--color-rule-soft)] bg-[color:var(--color-paper)]/95 backdrop-blur-md"
+  >
+    <a href="#proyectos" class="mobile-link">
+      <span class="t-prompt" aria-hidden="true">&gt;</span> Proyectos</a
+    >
+    <a href="#certificaciones" class="mobile-link">
+      <span class="t-prompt" aria-hidden="true">&gt;</span> Certificaciones</a
+    >
+    <a href="#contacto" class="mobile-link">
+      <span class="t-prompt" aria-hidden="true">&gt;</span> Contacto</a
+    >
+
+    <div class="flex items-center gap-6 px-6 py-4">
+      <SocialIcon href={REDES_SOCIALES.github} label="GitHub">
+        <GithubIcon size={20} />
+      </SocialIcon>
+
+      <SocialIcon href={REDES_SOCIALES.linkedin} label="LinkedIn">
+        <LinkedinIcon size={20} />
+      </SocialIcon>
+
+      <SocialIcon
+        href={`mailto:${REDES_SOCIALES.email}`}
+        label="Email"
+        target="_self"
+      >
+        <Mail size={20} aria-hidden="true" />
+      </SocialIcon>
+    </div>
+  </div>
+</header>
+
+<style>
+  .mono {
+    font-family: var(--font-mono);
+  }
+
+  .nav-wordmark {
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  .nav-wordmark:hover {
+    color: var(--color-accent-strong);
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    white-space: nowrap;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  /* Subrayado animado */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform var(--dur-med) var(--ease-out);
+  }
+
+  .nav-link:hover {
+    color: var(--color-ink);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  /* Punto de scrollspy: visible solo en el link activo */
+  .nav-link__dot {
+    width: 5px;
+    height: 5px;
+    background: var(--color-accent);
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity var(--dur-fast) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
+  }
+
+  .nav-link.is-active {
+    color: var(--color-ink);
+  }
+
+  .nav-link.is-active .nav-link__dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .nav-sep {
+    width: 1px;
+    height: 1.25rem;
+    background: var(--color-rule);
+  }
+
+  .menu-bar {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background: var(--color-ink-muted);
+    transition: transform var(--dur-med) var(--ease-out),
+      opacity var(--dur-fast) var(--ease-out);
+  }
+
+  .group.open .menu-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .group.open .menu-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .group.open .menu-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-ink-muted);
+    border-bottom: 1px solid oklch(20% 0.014 285);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-out),
+      background var(--dur-fast) var(--ease-out);
+  }
+
+  .mobile-link:hover {
+    color: var(--color-accent);
+    background: var(--color-accent-wash);
+  }
+</style>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  const abrirCerrar = (abrir: boolean) => {
+    menu?.classList.toggle("hidden", !abrir);
+    menu?.classList.toggle("flex", abrir);
+    btn?.setAttribute("aria-expanded", String(abrir));
+    btn?.setAttribute("aria-label", abrir ? "Cerrar menú" : "Abrir menú");
+    btn?.classList.toggle("open", abrir);
+  };
+
+  const estaAbierto = () => menu?.classList.contains("flex") === true;
+
+  btn?.addEventListener("click", () => {
+    abrirCerrar(!estaAbierto());
+  });
+
+  // Cierra el menú al pulsar un enlace
+  document.querySelectorAll(".mobile-link").forEach((link) => {
+    link.addEventListener("click", () => abrirCerrar(false));
+  });
+
+  // Escape: cierra y devuelve el foco al botón
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && estaAbierto()) {
+      abrirCerrar(false);
+      btn?.focus();
+    }
+  });
+
+  // Clic fuera del menú y del botón: cierra
+  document.addEventListener("click", (e) => {
+    if (
+      estaAbierto() &&
+      !menu?.contains(e.target as Node) &&
+      !btn?.contains(e.target as Node)
+    ) {
+      abrirCerrar(false);
+    }
+  });
+</script>

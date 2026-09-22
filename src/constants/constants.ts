@@ -34,7 +34,7 @@ export const PROYECTOS = [
     urlCodigo: "https://github.com/devparada/taskvelocity",
     urlImg: "/src/assets/taskvelocity-proyecto.png",
     descripcion:
-      "Proyecto de fin de ciclo de desarrollo de aplicaciones web, que permite a los usuarios gestionar sus tareas de manera eficiente y visual.",
+      "Proyecto de fin de ciclo de desarrollo de aplicaciones web que permite gestionar tareas de forma eficiente y visual.",
     lenguajes: [
       { nombre: "PHP" },
       { nombre: "MySQL" },
@@ -46,7 +46,7 @@ export const PROYECTOS = [
     urlCodigo: "https://github.com/devparada/ArgosBot",
     urlImg: "/src/assets/argosbot-proyecto.png",
     descripcion:
-      "Bot que avsia cuando se va el wifi de la casa mediante la API de Telegram.",
+      "Bot que avisa cuando se va el wifi de casa mediante la API de Telegram.",
     lenguajes: [
       { nombre: "Python" },
       { nombre: "Scripts" },

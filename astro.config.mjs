@@ -6,7 +6,6 @@ import UnoCSS from "@unocss/astro";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://devparada.dev',
-  prefetch: true,
   integrations: [
     sitemap(),
     UnoCSS(),

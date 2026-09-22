@@ -1,0 +1,55 @@
+---
+import { CERTIFICACIONES } from "../../constants/constants";
+import Certificacion from "../contenido/Certificacion.astro";
+import SeccionHeader from "../ui/SeccionHeader.astro";
+---
+
+<section
+  id="certificaciones"
+  class="max-w-5xl mx-auto px-6 py-16 md:py-20 md:px-12 lg:px-16"
+>
+  <SeccionHeader ruta="credenciales" titulo="Certificaciones" />
+
+  <div class="cert-list mono text-sm" data-reveal>
+    <p class="cert-list__header" aria-hidden="true">
+      <span class="t-prompt">$&nbsp;</span>
+      <span class="cert-list__path">ls ~/credenciales/</span>
+    </p>
+    <div class="cert-list__body" data-cert-rows>
+      {
+        CERTIFICACIONES.map((cert) => (
+          <Certificacion
+            nombre={cert.nombre}
+            empresa={cert.empresa}
+            fecha={cert.fecha}
+            url={cert.url}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .cert-list {
+    border: 1px solid var(--color-rule-soft);
+    background: var(--color-paper-2);
+  }
+
+  .cert-list__header {
+    padding: 0.625rem 1.25rem;
+    border-bottom: 1px solid var(--color-rule-soft);
+    background: var(--color-paper-3);
+    color: var(--color-ink-faint);
+    margin: 0;
+  }
+
+  .cert-list__path {
+    color: var(--color-ink-faint);
+  }
+
+  .cert-list__body {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
