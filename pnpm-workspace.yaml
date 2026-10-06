@@ -1,7 +1,12 @@
 allowBuilds:
   esbuild: false
   sharp: false
-#overrides: # Comentado para el futuro
+overrides: # Descomentado para el futuro
+  devalue: 5.9.4
+  fast-uri: 3.1.8
+  http-cache-semantics: 4.3.0
+  smol-toml: 1.9.0
+  source-map-js: 1.2.2
 minimumReleaseAge: 1440 # 24 horas
 packages:
   - .
