@@ -7,7 +7,7 @@
   "dependencyDashboard": false,
   "timezone": "Europe/Madrid",
   "schedule": [
-    "* 10 * * 1"
+    "* 10-12 * * 1"
   ],
   "minimumReleaseAge": "1 day",
   "prConcurrentLimit": 2,
