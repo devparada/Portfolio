@@ -2,7 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "helpers:pinGitHubActionDigests"
   ],
   "dependencyDashboard": false,
   "timezone": "Europe/Madrid",
@@ -61,16 +60,6 @@
       ],
       "addLabels": [
         "dependencies"
-      ]
-    },
-    {
-      "matchManagers": [
-        "github-actions"
-      ],
-      "groupName": "actions",
-      "groupSlug": "actions",
-      "addLabels": [
-        "github-actions"
       ]
     }
   ]
