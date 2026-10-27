@@ -1,7 +1,8 @@
 allowBuilds:
   esbuild: false
   sharp: false
-# overrides: # Comentado para el futuro
+overrides: # Descomentado para el futuro
+  fast-uri: 3.1.9
 minimumReleaseAge: 1440 # 24 horas
 packages:
   - .
