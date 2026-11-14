@@ -5,6 +5,3 @@ allowBuilds:
 minimumReleaseAge: 1440 # 24 horas
 packages:
   - .
-minimumReleaseAgeExclude:
-  # Renovate security update: astro@7.4.7
-  - astro@7.4.7
