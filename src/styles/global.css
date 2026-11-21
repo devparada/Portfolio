@@ -5,7 +5,7 @@
   --color-paper-3: oklch(21% 0.016 285);
   --color-ink: oklch(95% 0.005 285);
   --color-ink-muted: oklch(72% 0.012 285);
-  --color-ink-faint: oklch(63% 0.014 285);
+  --color-ink-faint: oklch(70% 0.014 285);
   --color-rule: oklch(28% 0.016 285);
   --color-rule-soft: oklch(24% 0.014 285);
 
@@ -27,10 +27,6 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   html,
   body {
     overflow-x: clip;

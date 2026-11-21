@@ -27,7 +27,7 @@ const hrefLink = urlDemo || urlCodigo || "#";
 
     <div class="project-card__body">
       <div class="flex items-start justify-between gap-4 mb-3">
-        <h3 class="project-card__title">
+        <h3 class="project-card__title" data-scramble-hover data-title-text={nombre}>
           {nombre}
         </h3>
         <span class="project-card__arrow" aria-hidden="true">
@@ -52,7 +52,7 @@ const hrefLink = urlDemo || urlCodigo || "#";
 
       <p class="project-card__desc">{descripcion}</p>
 
-      <div class="flex flex-wrap gap-2 mt-auto pt-5">
+      <div class="flex flex-wrap gap-2 mt-auto pt-5" data-tags>
         {
           lenguajes.map((lang: { nombre: string }) => (
             <span class="tag">{lang.nombre}</span>

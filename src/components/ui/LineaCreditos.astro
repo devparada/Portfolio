@@ -1,0 +1,80 @@
+---
+// Línea de créditos compartida: footer completo (home) y footer slim (404).
+const { class: className } = Astro.props;
+---
+
+<p
+  class:list={[
+    "mono text-xs sm:text-sm md:text-base text-[color:var(--color-ink-muted)] flex flex-wrap items-center justify-center gap-x-3 gap-y-2",
+    className,
+  ]}
+>
+  <span class="flex items-center gap-2">
+    <span class="status-dot" aria-hidden="true"></span>
+    Disponible para trabajar
+  </span>
+  <span class="text-[color:var(--color-ink-faint)]" aria-hidden="true">·</span>
+  <span>GPL-3.0</span>
+  <span class="text-[color:var(--color-ink-faint)]" aria-hidden="true">·</span>
+  <span
+    >hecho con&nbsp;<span class="heart" role="img" aria-label="cariño"
+      >♥</span
+    ></span
+  >
+</p>
+
+<style>
+  .status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: oklch(72% 0.19 145);
+    box-shadow: 0 0 0 0 oklch(72% 0.19 145 / 0.5);
+    animation: status-pulse 2.4s var(--ease-out) infinite;
+  }
+
+  @keyframes status-pulse {
+    0% {
+      box-shadow: 0 0 0 0 oklch(72% 0.19 145 / 0.5);
+    }
+
+    70% {
+      box-shadow: 0 0 0 6px oklch(72% 0.19 145 / 0);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 oklch(72% 0.19 145 / 0);
+    }
+  }
+
+  .heart {
+    color: var(--color-accent);
+    display: inline-block;
+    animation: heart-beat 1.8s var(--ease-out) infinite;
+  }
+  @keyframes heart-beat {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    12% {
+      transform: scale(1.25);
+    }
+
+    24% {
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .status-dot,
+    .heart {
+      animation: none;
+    }
+
+    .status-dot {
+      box-shadow: 0 0 0 2px oklch(72% 0.19 145 / 0.4);
+    }
+  }
+</style>

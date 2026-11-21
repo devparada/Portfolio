@@ -7,6 +7,9 @@ import "@fontsource/jetbrains-mono/latin-400.css";
 import "@fontsource/jetbrains-mono/latin-500.css";
 import "@fontsource/jetbrains-mono/latin-600.css";
 import "../styles/global.css";
+
+const { noindex = false } = Astro.props;
+const enHome = Astro.url.pathname === "/";
 ---
 
 <!doctype html>
@@ -14,13 +17,17 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#131118" />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta
       name="description"
       content="Full Stack Developer especializado en React, TypeScript y Node.js. Explora los proyectos y certificaciones de Raúl Parada de la Fuente."
     />
     <link rel="canonical" href="https://devparada.dev/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="icon" type="image/webp" href="/avatar.webp" />
-    <link rel="preload" as="image" href="/avatar.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    {enHome && <link rel="preload" as="image" href="/avatar.webp" type="image/webp" />}
     <title>Raúl Parada de la Fuente | Portfolio</title>
 
     <!-- Open Graph -->
@@ -84,8 +91,11 @@ import "../styles/global.css";
 
     <script>
       // Toda la animación GSAP vive en src/lib/animaciones.ts (imports npm).
-      // Estructura centralizada: todos los data-* se animan aquí.
-      import "../lib/animaciones";
+      // Carga diferida: el HTML queda interactivo sin esperar al bundle de gsap;
+      // el módulo importa cuando el hilo queda libre y se autoinicia.
+      const cargar = () => import("../lib/animaciones");
+      const w = window as Window & { requestIdleCallback?: typeof requestIdleCallback };
+      (w.requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 0)))(cargar);
     </script>
   </body>
 </html>
